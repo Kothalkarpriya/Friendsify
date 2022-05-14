@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap');
+
+:root{
+    --dark-col : #22577A;
+    --light-back:#38A3A5;
+    --back-light:#C7F9CC;
+    --highlight:#80ED99;
+    --teal-col:#57CC99;
+    --notify-font:'Hubballi', cursive;
+    --heading-font:'Libre Bodoni', serif;
+    --content-font:'League Spartan', sans-serif;
+}
