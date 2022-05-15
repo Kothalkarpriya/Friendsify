@@ -7,6 +7,7 @@ nav{
     color: var(--back-light);
     padding:1rem;
     box-shadow: var(--bottom-shadow);
+    font-family: var(--heading-font);
 }
 span{
     color: var(--dark-col);
