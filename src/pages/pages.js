@@ -6,14 +6,16 @@ import Explore from "./Explore/Explore";
 import BookMarks from "./Bookmarks/BooksMarks";
 import Login from "./Auth/Login";
 import SignIn from "./Auth/SignIn";
+import RequireAuth from "./Auth/RequireAuth";
 
 export {
-    Home,
-    Profile,
-    Notifications,
-    LandingPage,
-    Explore,
-    BookMarks,
-    Login,
-    SignIn
+  Home,
+  Profile,
+  Notifications,
+  LandingPage,
+  Explore,
+  BookMarks,
+  Login,
+  SignIn,
+  RequireAuth,
 };

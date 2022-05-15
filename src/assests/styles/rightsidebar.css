@@ -1,0 +1,58 @@
+@import "./coolors.css";
+
+.right-side-container{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    gap:1rem;
+}
+
+.right-side-first{
+    background-color: var(--teal-col);
+    display: flex;
+    width: max-content;
+    padding:0.5rem 1rem;
+    color:var(--white);
+}
+
+.right-side-first .search{
+    background-color: var(--teal-col);
+    border:none;
+    color: var(--dark-col);
+    font-weight: 600;
+}
+.right-side-first .search:active{
+    background-color: var(--teal-col);
+}
+.right-side-container .icon{
+    font-size: 1.3rem;
+}
+.right-side-second{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--teal-col);
+    padding: 10px;
+}
+
+.right-side-second .side-head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.right-side-second .side-head p, .side-head button{
+    padding:0;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color:var(--dark-col);
+    align-items: center;
+}
+
+button{
+    background-color: var(--teal-col);
+    border: none;
+}
+.side-list{
+    list-style: none;
+    padding: 0;
+}
