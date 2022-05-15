@@ -37,15 +37,15 @@
 .right-side-second .side-head{
     display: flex;
     justify-content: space-around;
-    align-items: center;
 }
 .right-side-second .side-head p, .side-head button{
     padding:0;
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color:var(--dark-col);
     align-items: center;
+    font-family: var(--content-font);
 }
 
 button{

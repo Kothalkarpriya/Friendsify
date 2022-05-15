@@ -33,7 +33,7 @@
   margin-right: 10px;
 }
 
-.left-side-first .btn {
+.btn-left {
   background-color: var(--dark-col);
   color: var(--back-light);
   font-size: 1.2rem;

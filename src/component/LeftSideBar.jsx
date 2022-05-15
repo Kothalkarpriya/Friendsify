@@ -32,7 +32,7 @@ export default function LeftSideBar() {
           <CgProfile className="icon"/>
           Profile
         </Link>
-        <button className="btn">Create New Post</button>
+        <button className="btn-left btn">Create New Post</button>
       </div>
       <div className="left-side-second">
         {/* TOdo: Card for user Profile */}

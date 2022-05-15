@@ -1,0 +1,33 @@
+@import "./coolors.css";
+
+form {
+    padding: 1rem;
+    max-width: 25rem;
+    margin: 2rem auto;
+}
+
+form:hover{
+    box-shadow: var(--all-side-bold-shadow);
+}
+form header{
+    font-size: 1.7rem;
+    font-family: var(--heading-font);
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.form-block{
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    text-align: left;
+    align-items: stretch;
+}
+
+.form-block input{
+    padding: 0.5rem 1rem;
+}
+
+.form-block .label{
+    font-size: large;
+}
