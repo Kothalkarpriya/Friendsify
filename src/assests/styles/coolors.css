@@ -11,4 +11,17 @@
     --notify-font:'Hubballi', cursive;
     --heading-font:'Libre Bodoni', serif;
     --content-font:'League Spartan', sans-serif;
+    --light-grey: #CED4DA;
+    --little-dark-grey: #495057;
+    --little-light-grey: #ADB5BD;
+    --red-color:#EF233C;
+    --green-color: #2B9348;
+    --bottom-shadow: 0px 15px 10px -10px var(--dark-col);
+    --top-shadow: 0px -15px 10px -15px var(--dark-col);
+    --right-bottom-shadow: 15px -10px 15px -15px var(--little-dark-grey);
+    --all-side-shadow: 0px 0px 2px 2px var(--little-light-grey);
+    --all-side-bold-shadow: 0px 0px 10px 10px var(--little-dark-grey);
+    --font: 'Gideon Roman', cursive;
+    --all-side-red-border: 0px 0px 2px 2px var(--red-color);
+    --all-side-green-border: 0px 0px 2px 2px var(--green-color);
 }
