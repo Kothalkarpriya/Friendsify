@@ -14,7 +14,7 @@ function AuthContextProvider({ children }) {
   const { isLoggedIn } = authState;
   const navigate = useNavigate();
   const location = useLocation();
-  let from = location.state?.from?.pathName || "/";
+  let from = location.state?.from?.pathName || "/home";
 
   const login = async (user) => {
     try {

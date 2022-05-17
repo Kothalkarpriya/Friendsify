@@ -38,7 +38,9 @@ export default function Login() {
               required
               name="email"
               // eslint-disable-next-line no-undef
-              value={user.username} onChange={(e)=>changeInputHandler(e, email)}
+              value={user.username}
+              // eslint-disable-next-line no-undef
+              onChange={(e) => changeInputHandler(e, username)}
             />
           </div>
           <div className="form-block">
@@ -52,7 +54,9 @@ export default function Login() {
               required
               name="password"
               // eslint-disable-next-line no-undef
-              value={user.password} onChange={(e)=>changeInputHandler(e, password)}
+              value={user.password}
+              // eslint-disable-next-line no-undef
+              onChange={(e) => changeInputHandler(e, password)}
             />
           </div>
           <div className="form-block-check">
@@ -61,13 +65,15 @@ export default function Login() {
               Remember Me
             </div>
             <div className="btn-pass">
-              <Link className="Link" to="/">
+              <Link className="Link" to="/home">
                 Forgot your Password?
               </Link>
             </div>
           </div>
           <div className="form-block">
-            <button className="btn btn-left" type="submit">Login</button>
+            <button className="btn btn-left" type="submit">
+              Login
+            </button>
           </div>
         </form>
         <div className="form-block">
