@@ -2,25 +2,50 @@ import React from "react";
 import "../../assests/styles/auth.css";
 import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
+import { useState } from "react";
+import { useAuth } from "../../context/context";
 
 export default function SignIn() {
+  const [user, setUser] = useState({});
+  const { signin } = useAuth();
+
+  const changeInputHandler = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const submit = (e) => {
+    e.preventDefault();
+    signin(user);
+  }
   return (
     <main>
       <section className="signin">
         <header>Signup</header>
-        <form>
+        <form action="#" onSubmit={submit}>
           <div className="form-block-name">
             <div className="form-block">
-              <label className="label" for="#input-firstName" >
+              <label className="label" for="#input-firstName">
                 First Name
               </label>
-              <input type="text" id="input-firstName" placeholder="First Name" required />
+              <input
+                type="text"
+                id="input-firstName"
+                placeholder="First Name"
+                required
+                onChange={(e)=> changeInputHandler(e)}
+              />
             </div>
             <div className="form-block">
               <label className="label" for="#input-lastName">
                 Last Name
               </label>
-              <input type="text" id="input-lastName" placeholder="Last Name" required />
+              <input
+                type="text"
+                id="input-lastName"
+                placeholder="Last Name"
+                required
+                onChange={(e)=> changeInputHandler(e)}
+              />
             </div>
           </div>
           <div className="form-block">
@@ -32,6 +57,7 @@ export default function SignIn() {
               type="email"
               placeholder="username@gmail.com"
               required
+              onChange={(e)=> changeInputHandler(e)}
             />
           </div>
           <div className="form-block">
@@ -43,6 +69,7 @@ export default function SignIn() {
               id="input-pass"
               placeholder="**********"
               required
+              onChange={(e)=> changeInputHandler(e)}
             />
           </div>
           <div className="form-block">
@@ -70,7 +97,7 @@ export default function SignIn() {
           </div>
         </form>
         <div className="form-block">
-          <Link className="Link" to="/signin">
+          <Link className="Link" to="/login">
             Already have an Account <AiOutlineRight />
           </Link>
         </div>

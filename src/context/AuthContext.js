@@ -11,14 +11,15 @@ function AuthContextProvider({ children }) {
     isLoggedIn: false,
     token: null,
   });
-  const isLoggedIn = authState;
-  const location = useLocation();
+  const { isLoggedIn } = authState;
   const navigate = useNavigate();
+  const location = useLocation();
   let from = location.state?.from?.pathName || "/";
 
-  const login = async ({ email, password }) => {
+  const login = async (user) => {
     try {
-      const { data } = await axios.post("api/auth/login", { email, password });
+      const { data } = await axios.post("/api/auth/login", {...user
+      });
       localStorage.setItem("user", JSON.stringify(data));
       authDispatch({ type: "LOGIN", payload: data });
       navigate(from, { replace: true });
@@ -29,7 +30,7 @@ function AuthContextProvider({ children }) {
 
   const signin = async (user) => {
     try {
-      const { data } = await axios.post("api/auth/sign", user);
+      const { data } = await axios.post("/api/auth/signup", user);
       localStorage.setItem("user", JSON.stringify(data));
       authDispatch({ type: "SIGNIN", payload: data });
       navigate(from, { replace: true });
@@ -57,8 +58,7 @@ function AuthContextProvider({ children }) {
     <AuthContext.Provider
       value={{ login, signin, logout, authState, isLoggedIn }}
     >
-      {" "}
-      {children}{" "}
+      {children}
     </AuthContext.Provider>
   );
 }
