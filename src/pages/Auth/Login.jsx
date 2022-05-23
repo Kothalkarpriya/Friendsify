@@ -24,6 +24,9 @@ export default function Login() {
   };
   return (
     <main>
+      <h1>
+        <span>Friend</span>sify
+      </h1>
       <section className="login">
         <header>Login</header>
         <form action="#" onSubmit={submit}>

@@ -18,8 +18,9 @@ function AuthContextProvider({ children }) {
 
   const login = async (user) => {
     try {
-      const { data } = await axios.post("/api/auth/login", {...user
-      });
+      const { data } = await axios.post("/api/auth/login", { ...user });
+
+      console.log("Ia ma here");
       localStorage.setItem("user", JSON.stringify(data));
       authDispatch({ type: "LOGIN", payload: data });
       navigate(from, { replace: true });

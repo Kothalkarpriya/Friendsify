@@ -5,7 +5,7 @@ export default function RightSideBar() {
   return (
     <aside className="right-side-container">
       <div className="right-side-first">
-        <AiOutlineSearch className="icon"/>
+        <AiOutlineSearch className="icon" />
         <input
           type="search"
           className="search"

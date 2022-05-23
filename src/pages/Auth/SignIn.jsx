@@ -16,9 +16,12 @@ export default function SignIn() {
   const submit = (e) => {
     e.preventDefault();
     signin(user);
-  }
+  };
   return (
-    <main>
+    <main className="land">
+      <h1>
+        <span>Friend</span>sify
+      </h1>
       <section className="signin">
         <header>Signup</header>
         <form action="#" onSubmit={submit}>
@@ -32,7 +35,7 @@ export default function SignIn() {
                 id="input-firstName"
                 placeholder="First Name"
                 required
-                onChange={(e)=> changeInputHandler(e)}
+                onChange={(e) => changeInputHandler(e)}
               />
             </div>
             <div className="form-block">
@@ -44,7 +47,7 @@ export default function SignIn() {
                 id="input-lastName"
                 placeholder="Last Name"
                 required
-                onChange={(e)=> changeInputHandler(e)}
+                onChange={(e) => changeInputHandler(e)}
               />
             </div>
           </div>
@@ -57,7 +60,7 @@ export default function SignIn() {
               type="email"
               placeholder="username@gmail.com"
               required
-              onChange={(e)=> changeInputHandler(e)}
+              onChange={(e) => changeInputHandler(e)}
             />
           </div>
           <div className="form-block">
@@ -69,7 +72,7 @@ export default function SignIn() {
               id="input-pass"
               placeholder="**********"
               required
-              onChange={(e)=> changeInputHandler(e)}
+              onChange={(e) => changeInputHandler(e)}
             />
           </div>
           <div className="form-block">

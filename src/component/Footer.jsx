@@ -1,6 +1,6 @@
 import "../assests/styles/footer.css";
 import {
-    AiOutlineGithub,
+  AiOutlineGithub,
   AiFillTwitterCircle,
   AiFillLinkedin,
 } from "react-icons/ai";

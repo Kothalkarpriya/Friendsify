@@ -1,15 +1,14 @@
 @import "./coolors.css";
 
-nav{
-    font-size: 2.5rem;
-    background-color: var(--teal-col);
-    font-weight: bold;
-    color: var(--back-light);
-    padding:1rem;
-    box-shadow: var(--bottom-shadow);
-    font-family: var(--heading-font);
+nav {
+  font-size: 2.5rem;
+  background-color: var(--teal-col);
+  font-weight: bold;
+  color: var(--back-light);
+  padding: 1rem;
+  box-shadow: var(--bottom-shadow);
+  font-family: var(--heading-font);
 }
-span{
-    color: var(--dark-col);
-    
+span {
+  color: var(--dark-col);
 }

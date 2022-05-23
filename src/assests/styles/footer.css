@@ -9,11 +9,11 @@ footer p span {
   font-size: 1.5rem;
   font-weight: bold;
 }
-footer p{
-    font-size: 1.3rem;
+footer p {
+  font-size: 1.3rem;
 }
-footer h3{
-    font-family: var(--content-font);
+footer h3 {
+  font-family: var(--content-font);
 }
 
 footer ul {
@@ -23,11 +23,9 @@ footer ul {
 }
 footer ul li {
   display: inline;
- 
 }
 footer ul li a {
-    color:var(--dark-col);
-    font-size: 1.5rem;
-    padding:1rem;
+  color: var(--dark-col);
+  font-size: 1.5rem;
+  padding: 1rem;
 }
-
