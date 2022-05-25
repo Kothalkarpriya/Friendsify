@@ -7,7 +7,7 @@ import { useAuth } from "../../context/context";
 
 export default function SignIn() {
   const [user, setUser] = useState({});
-  const { signin } = useAuth();
+  const { signup } = useAuth();
 
   const changeInputHandler = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -15,7 +15,7 @@ export default function SignIn() {
 
   const submit = (e) => {
     e.preventDefault();
-    signin(user);
+    signup(user);
   };
   return (
     <main className="land">
@@ -27,7 +27,7 @@ export default function SignIn() {
         <form action="#" onSubmit={submit}>
           <div className="form-block-name">
             <div className="form-block">
-              <label className="label" for="#input-firstName">
+              <label className="label" htmlFor="#input-firstName">
                 First Name
               </label>
               <input
@@ -39,7 +39,7 @@ export default function SignIn() {
               />
             </div>
             <div className="form-block">
-              <label className="label" for="#input-lastName">
+              <label className="label" htmlFor="#input-lastName">
                 Last Name
               </label>
               <input
@@ -52,7 +52,7 @@ export default function SignIn() {
             </div>
           </div>
           <div className="form-block">
-            <label className="label" for="#input-email">
+            <label className="label" htmlFor="#input-email">
               Email Address
             </label>
             <input
@@ -64,7 +64,7 @@ export default function SignIn() {
             />
           </div>
           <div className="form-block">
-            <label className="label" for="#input-pass">
+            <label className="label" htmlFor="#input-pass">
               Password
             </label>
             <input
@@ -76,7 +76,7 @@ export default function SignIn() {
             />
           </div>
           <div className="form-block">
-            <label className="label" for="#input-pass-again">
+            <label className="label" htmlFor="#input-pass-again">
               Confirm Password
             </label>
             <input
@@ -96,7 +96,7 @@ export default function SignIn() {
             </div>
           </div>
           <div className="form-block">
-            <button className="btn btn-left">Login</button>
+            <button className="btn btn-left" type="submit">Signup</button>
           </div>
         </form>
         <div className="form-block">

@@ -31,7 +31,7 @@ export default function Login() {
         <header>Login</header>
         <form action="#" onSubmit={submit}>
           <div className="form-block">
-            <label className="label" for="#input-email">
+            <label className="label" htmlFor="#input-email">
               Email Address
             </label>
             <input
@@ -47,7 +47,7 @@ export default function Login() {
             />
           </div>
           <div className="form-block">
-            <label className="label" for="#input-pass">
+            <label className="label" htmlFor="#input-pass">
               Password
             </label>
             <input

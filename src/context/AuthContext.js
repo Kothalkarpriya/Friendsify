@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import AuthReducer from "../reducer/AuthReducer";
@@ -18,9 +17,7 @@ function AuthContextProvider({ children }) {
 
   const login = async (user) => {
     try {
-      const { data } = await axios.post("/api/auth/login", { ...user });
-
-      console.log("Ia ma here");
+      const { data } = await axios.post("/api/auth/login", user);
       localStorage.setItem("user", JSON.stringify(data));
       authDispatch({ type: "LOGIN", payload: data });
       navigate(from, { replace: true });
@@ -29,18 +26,18 @@ function AuthContextProvider({ children }) {
     }
   };
 
-  const signin = async (user) => {
+  const signup = async (user) => {
     try {
       const { data } = await axios.post("/api/auth/signup", user);
       localStorage.setItem("user", JSON.stringify(data));
-      authDispatch({ type: "SIGNIN", payload: data });
+      authDispatch({ type: "SIGNUP", payload: data });
       navigate(from, { replace: true });
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data);
     }
   };
 
-  const logout = async (user) => {
+  const logout = async () => {
     try {
       localStorage.removeItem("user");
       authDispatch({ type: "LOGOUT" });
@@ -57,7 +54,7 @@ function AuthContextProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ login, signin, logout, authState, isLoggedIn }}
+      value={{ login, signup, logout, authState, isLoggedIn }}
     >
       {children}
     </AuthContext.Provider>

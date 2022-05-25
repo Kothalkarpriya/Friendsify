@@ -6,7 +6,7 @@ export default function AuthReducer(state, action) {
         isLoggedIn: true,
         token: action.payload.encodedToken,
       };
-    case "SIGNIN":
+    case "SIGNUP":
       return {
         ...state,
         isLoggedIn: false,
