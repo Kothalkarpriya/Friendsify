@@ -1,0 +1,31 @@
+@import "./coolors.css";
+
+footer {
+  background-color: var(--teal-col);
+  padding: 0.5rem;
+  font-family: var(--heading-font);
+}
+footer p span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+footer p {
+  font-size: 1.3rem;
+}
+footer h3 {
+  font-family: var(--content-font);
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+footer ul li {
+  display: inline;
+}
+footer ul li a {
+  color: var(--dark-col);
+  font-size: 1.5rem;
+  padding: 1rem;
+}

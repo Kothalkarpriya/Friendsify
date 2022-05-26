@@ -1,0 +1,68 @@
+@import "./coolors.css";
+
+main {
+  padding: 7rem 2rem;
+}
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  width: max-content;
+  margin: auto;
+}
+
+.landing:hover {
+  box-shadow: var(--all-side-bold-shadow);
+}
+.landing article {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.landing-text {
+  padding: 1rem;
+}
+.landing-text {
+  font-size: small;
+  padding: 1rem;
+  margin: 0 1rem;
+}
+
+.landing-text h4 strong {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: var(--dark-col);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin: 1rem;
+}
+
+.landing-img {
+  width: 25rem;
+  height: 30rem;
+}
+
+.landing-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.landing-btn .Link {
+  font-size: larger;
+  text-align: center;
+  text-decoration: none;
+  color: var(--dark-col);
+  font-weight: bold;
+}
+.landing-btn .btn .Link {
+  color: var(--back-light);
+}
