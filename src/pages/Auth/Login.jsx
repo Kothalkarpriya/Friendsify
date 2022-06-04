@@ -23,7 +23,7 @@ export default function Login() {
     login(user);
   };
   return (
-    <main>
+    <main className="landing-main">
       <h1>
         <span>Friend</span>sify
       </h1>
