@@ -1,4 +1,4 @@
-import "../assests/styles/leftsidebar.css";
+import "../../assests/styles/leftsidebar.css";
 import { Link } from "react-router-dom";
 import {
   MdHome,
@@ -7,7 +7,7 @@ import {
   MdNotificationsActive,
 } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
-import { useAuth } from "../context/context";
+import { useAuth } from "../../context/context";
 import { NavLink } from "react-router-dom";
 
 export default function LeftSideBar() {

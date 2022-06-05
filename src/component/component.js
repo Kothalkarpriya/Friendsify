@@ -1,7 +1,7 @@
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import LeftSideBar from "./LeftSideBar";
-import RightSideBar from "./RightSideBar";
+import Navbar from "./Navbar/Navbar";
+import Footer from "./Navbar/Footer";
+import LeftSideBar from "./Navbar/LeftSideBar";
+import RightSideBar from "./Navbar/RightSideBar";
 import CreatePost from "./createPost/CreatePost";
 import PostFilter from "./filter/PostFilter";
 

@@ -1,4 +1,4 @@
-import "../assests/styles/rightsidebar.css";
+import "../../assests/styles/rightsidebar.css";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export default function RightSideBar() {

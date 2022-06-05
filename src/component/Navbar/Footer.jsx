@@ -1,4 +1,4 @@
-import "../assests/styles/footer.css";
+import "../../assests/styles/footer.css";
 import {
   AiOutlineGithub,
   AiFillTwitterCircle,
