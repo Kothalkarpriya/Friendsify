@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer>
       <p>
-        <span>Friendsify</span> is Created to connect with family and frinds
+        <span>Friendsify</span> is Created to connect with family and friends
       </p>
       <h3>Connect With Me:</h3>
       <ul>

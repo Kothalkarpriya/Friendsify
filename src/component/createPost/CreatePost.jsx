@@ -16,12 +16,15 @@ export default function CreatePost() {
         />
       </div>
       <div className="post-data">
-        <textarea placeholder="Write something interesting..." className="post-text"></textarea>
+        <textarea
+          placeholder="Write something interesting..."
+          className="post-text"
+        ></textarea>
         <div className="btn-container">
           <div className="create-post-icon">
-            <AiOutlineFileImage className="icon"/>
-            <AiOutlineFileGif className="icon"/>
-            <AiOutlineSmile className="icon"/>
+            <AiOutlineFileImage className="icon" />
+            <AiOutlineFileGif className="icon" />
+            <AiOutlineSmile className="icon" />
           </div>
           <button className="btn btn-left">Post</button>
         </div>

@@ -12,7 +12,7 @@
   display: flex;
   width: max-content;
   padding: 0.5rem 1rem;
-  color: var(--white);
+  color: var(--dark-col);
 }
 
 .right-side-first .search {

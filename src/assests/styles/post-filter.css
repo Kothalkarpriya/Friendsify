@@ -8,10 +8,12 @@
   color: var(--dark-col);
   font-size: 1.7rem;
   margin-bottom: 1rem;
+  font-family: var(--heading-font);
 }
 
 .post-filter-container {
   display: flex;
+  font-family: var(--content-font);
 }
 
 .post-filter-container ul {
