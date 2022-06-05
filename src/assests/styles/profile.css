@@ -44,21 +44,22 @@ p {
   padding: 0.5rem 1rem;
 }
 
-.follower{
-      margin: 10px;
+.follower {
+  margin: 10px;
 }
 
-.count , .follower-detail{
-     font-size: 1.2rem;
-     font-weight: 600;
+.count,
+.follower-detail {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.posts{
-     text-align: left;
+.posts {
+  text-align: left;
 }
 
-.profile-container .btn-container, .profile-data{
-     display: flex;
-     align-items: center;
-     
+.profile-container .btn-container,
+.profile-data {
+  display: flex;
+  justify-content: center;
 }
