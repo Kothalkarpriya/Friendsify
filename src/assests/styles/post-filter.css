@@ -1,0 +1,30 @@
+@import "./coolors.css";
+
+.post-filter {
+  padding: 1rem;
+}
+
+.heading {
+  color: var(--dark-col);
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.post-filter-container {
+  display: flex;
+}
+
+.post-filter-container ul {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+}
+.post-filter-container li {
+  display: inline;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-col);
+  border: 2px solid var(--dark-col);
+}
