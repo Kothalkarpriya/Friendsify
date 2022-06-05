@@ -36,8 +36,6 @@ export default function LeftSideBar() {
           <CgProfile className="icon" />
           Profile
         </Link>
-
-        {/* <button className="btn-left btn">Create New Post</button> */}
       </div>
       <div className="left-side-second">
         {isLoggedIn ? (
@@ -51,8 +49,6 @@ export default function LeftSideBar() {
             <button className="btn-left btn">Login</button>
           </NavLink>
         )}
-        {/* TOdo: Card for user Profile */}
-        User
       </div>
     </section>
   );

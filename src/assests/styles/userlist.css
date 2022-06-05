@@ -1,0 +1,21 @@
+@import "./coolors.css";
+
+.userlist-container{
+     display: flex;
+     justify-content: space-between;
+     margin: 0.5rem 0;
+}
+
+.userlist-container .first{
+     display: flex;
+}
+
+.userlist-container .avatar-image{
+     width: 30px;
+     height: 30px;
+}
+.userlist-container .user-name{
+     margin: 0 10px;
+     color:var(--dark-col);
+     font-weight: 600;
+}
