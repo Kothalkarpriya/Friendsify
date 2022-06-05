@@ -1,6 +1,7 @@
 @import "./coolors.css";
 
-.post-filter {
+.post-filter,
+.bookmark {
   padding: 1rem;
 }
 

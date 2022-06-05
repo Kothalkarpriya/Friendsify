@@ -1,11 +1,6 @@
 import "../../assests/styles/leftsidebar.css";
 import { Link } from "react-router-dom";
-import {
-  MdHome,
-  MdExplore,
-  MdOutlineBookmark,
-  MdNotificationsActive,
-} from "react-icons/md";
+import { MdHome, MdExplore, MdOutlineBookmark } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { useAuth } from "../../context/context";
 import { NavLink } from "react-router-dom";
@@ -27,10 +22,6 @@ export default function LeftSideBar() {
         <Link to="/bookmarks" className="link">
           <MdOutlineBookmark className="icon" />
           BookMarks
-        </Link>
-        <Link to="notification" className="link">
-          <MdNotificationsActive className="icon" />
-          Notifications
         </Link>
         <Link to="/profile" className="link">
           <CgProfile className="icon" />

@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import {
   Home,
   Profile,
-  Notifications,
   LandingPage,
   Explore,
   BookMarks,
@@ -28,14 +27,6 @@ export default function RoutesPath() {
         element={
           <RequireAuth>
             <Profile />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="/notification"
-        element={
-          <RequireAuth>
-            <Notifications />
           </RequireAuth>
         }
       />
