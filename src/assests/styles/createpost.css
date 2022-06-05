@@ -1,18 +1,21 @@
 @import "./coolors.css";
 
-.post-container {
-  margin: 1rem;
-  padding: 1rem;
+.post-container,
+.user-post-container {
+  margin: 1.5rem 1rem;
+  padding: 1rem 1rem 0.5rem 1rem;
   display: flex;
   justify-content: center;
   gap: 10px;
   background-color: var(--teal-col);
   font-family: var(--content-font);
 }
+
 .post-data {
   width: 100%;
   margin-right: 10px;
 }
+
 .post-text {
   width: 100%;
   height: 100px;
@@ -31,4 +34,9 @@
 
 .create-post-icon .icon {
   color: var(--dark-col);
+}
+
+.user-post-container .create-post-icon {
+  display: flex;
+  justify-content: space-between;
 }

@@ -5,6 +5,7 @@ import RightSideBar from "./Navbar/RightSideBar";
 import CreatePost from "./createPost/CreatePost";
 import PostFilter from "./filter/PostFilter";
 import UserList from "../component/userList/UserList.jsx";
+import UserPost from "./posts/UserPost";
 
 export {
   Navbar,
@@ -14,4 +15,5 @@ export {
   CreatePost,
   PostFilter,
   UserList,
+  UserPost,
 };
