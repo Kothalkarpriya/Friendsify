@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  background-color: var(--teal-col);
+  background-color: var(--highlight);
   font-family: var(--content-font);
 }
 

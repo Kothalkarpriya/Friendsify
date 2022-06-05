@@ -15,7 +15,7 @@
   height: 30px;
 }
 .userlist-container .user-name,
-.user-post-container .user-name {
+.user-post-container .user-name , .user-name{
   margin: 0 10px;
   color: var(--dark-col);
   font-weight: 600;
