@@ -1,4 +1,3 @@
-import React from "react";
 import "../../assests/styles/createpost.css";
 import {
   AiOutlineFileGif,

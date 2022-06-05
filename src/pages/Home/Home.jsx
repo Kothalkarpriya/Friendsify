@@ -1,4 +1,3 @@
-import React from "react";
 import { CreatePost } from "../../component/component";
 
 export default function Home(){

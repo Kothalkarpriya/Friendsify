@@ -37,7 +37,7 @@ export default function LeftSideBar() {
           Profile
         </Link>
 
-        <button className="btn-left btn">Create New Post</button>
+        {/* <button className="btn-left btn">Create New Post</button> */}
       </div>
       <div className="left-side-second">
         {isLoggedIn ? (

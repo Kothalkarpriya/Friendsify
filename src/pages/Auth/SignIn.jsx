@@ -1,4 +1,3 @@
-import React from "react";
 import "../../assests/styles/auth.css";
 import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";

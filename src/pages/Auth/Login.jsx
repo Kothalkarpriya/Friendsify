@@ -1,4 +1,3 @@
-import React from "react";
 import "../../assests/styles/auth.css";
 import "../../assests/styles/leftsidebar.css";
 import { AiOutlineRight } from "react-icons/ai";
