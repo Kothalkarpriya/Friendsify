@@ -4,7 +4,7 @@ import "../../assests/styles/landing-page.css";
 
 export default function LandingPage() {
   return (
-    <main>
+    <main className="landing-main">
       <section className="landing">
         <article>
           <h1>

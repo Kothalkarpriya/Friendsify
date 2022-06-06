@@ -1,0 +1,46 @@
+@import "./coolors.css";
+
+.userlist-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.userlist-container .first {
+  display: flex;
+}
+
+.userlist-container .avatar-image {
+  width: 30px;
+  height: 30px;
+}
+.userlist-container .user-name,
+.user-post-container .user-name , .user-name{
+  margin: 0 10px;
+  color: var(--dark-col);
+  font-weight: 600;
+}
+.user-post-container .post-data {
+  padding: 5px;
+}
+
+.user-post-container .user-name {
+  font-size: 1.2rem;
+  font-family: var(--heading-font);
+}
+
+.user-post {
+  font-size: 1.3rem;
+  font-family: var(--content-font);
+  padding: 0.5rem;
+  margin: 0.5rem;
+  color: var(--little-dark-grey);
+  font-weight: 600;
+  background-color: var(--back-light);
+}
+
+.post-username {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

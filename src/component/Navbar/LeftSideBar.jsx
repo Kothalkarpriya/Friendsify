@@ -1,13 +1,8 @@
-import "../assests/styles/leftsidebar.css";
+import "../../assests/styles/leftsidebar.css";
 import { Link } from "react-router-dom";
-import {
-  MdHome,
-  MdExplore,
-  MdOutlineBookmark,
-  MdNotificationsActive,
-} from "react-icons/md";
+import { MdHome, MdExplore, MdOutlineBookmark } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
-import { useAuth } from "../context/context";
+import { useAuth } from "../../context/context";
 import { NavLink } from "react-router-dom";
 
 export default function LeftSideBar() {
@@ -28,16 +23,10 @@ export default function LeftSideBar() {
           <MdOutlineBookmark className="icon" />
           BookMarks
         </Link>
-        <Link to="notification" className="link">
-          <MdNotificationsActive className="icon" />
-          Notifications
-        </Link>
         <Link to="/profile" className="link">
           <CgProfile className="icon" />
           Profile
         </Link>
-
-        <button className="btn-left btn">Create New Post</button>
       </div>
       <div className="left-side-second">
         {isLoggedIn ? (
@@ -51,8 +40,6 @@ export default function LeftSideBar() {
             <button className="btn-left btn">Login</button>
           </NavLink>
         )}
-        {/* TOdo: Card for user Profile */}
-        User
       </div>
     </section>
   );

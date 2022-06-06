@@ -1,4 +1,3 @@
-import React from "react";
 import "../../assests/styles/auth.css";
 import "../../assests/styles/leftsidebar.css";
 import { AiOutlineRight } from "react-icons/ai";
@@ -23,7 +22,7 @@ export default function Login() {
     login(user);
   };
   return (
-    <main>
+    <main className="landing-main">
       <h1>
         <span>Friend</span>sify
       </h1>

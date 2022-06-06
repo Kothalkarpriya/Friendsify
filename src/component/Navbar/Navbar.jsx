@@ -1,4 +1,4 @@
-import "../assests/styles/navbar.css";
+import "../../assests/styles/navbar.css";
 
 export default function Navbar() {
   return (

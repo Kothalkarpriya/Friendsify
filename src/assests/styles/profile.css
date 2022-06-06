@@ -1,0 +1,65 @@
+@import "./coolors.css";
+
+.profile-container {
+  margin: 1rem;
+  padding: 1rem;
+}
+.avatar-image {
+  width: 120px;
+  height: 120px;
+}
+.image {
+  padding: 0.5rem;
+}
+
+.profile-container .user-name {
+  font-size: 1.5rem;
+  font-family: var(--heading-font);
+  margin: 0.5rem;
+}
+.profile-container .btn {
+  padding: 0.5rem 2rem;
+  margin-bottom: 1rem;
+  width: max-content;
+}
+
+.bio {
+  font-family: var(--content-font);
+  color: var(--dark-col);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+p {
+  margin: 0.5rem;
+}
+.portfolio {
+  color: var(--dark-col);
+}
+.follower-container {
+  background-color: var(--highlight);
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  width: max-content;
+  padding: 0.5rem 1rem;
+}
+
+.follower {
+  margin: 10px;
+}
+
+.count,
+.follower-detail {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.posts {
+  text-align: left;
+}
+
+.profile-container .btn-container,
+.profile-data {
+  display: flex;
+  justify-content: center;
+}

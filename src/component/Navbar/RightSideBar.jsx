@@ -1,5 +1,6 @@
-import "../assests/styles/rightsidebar.css";
+import "../../assests/styles/rightsidebar.css";
 import { AiOutlineSearch } from "react-icons/ai";
+import {UserList} from "../component.js";
 
 export default function RightSideBar() {
   return (
@@ -17,21 +18,10 @@ export default function RightSideBar() {
           <p>Who to Follow?</p>
           <button>Show More</button>
         </div>
-        {/* Todo: Create component for list */}
-        <ul className="side-list">
-          <li>
-            Priya Kothalkar <button>Follow+</button>
-          </li>
-          <li>
-            Priya Kothalkar <button>Follow+</button>
-          </li>
-          <li>
-            Priya Kothalkar <button>Follow+</button>
-          </li>
-          <li>
-            Priya Kothalkar <button>Follow+</button>
-          </li>
-        </ul>
+        <UserList />
+        <UserList />
+        <UserList />
+        <UserList />
       </div>
     </aside>
   );
