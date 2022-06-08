@@ -1,0 +1,36 @@
+@import "./coolors.css";
+
+.single-post{
+     padding: 1rem;
+     margin:2rem;
+     box-shadow: var(--all-side-bold-shadow);
+     background-color: var(--highlight);
+}
+
+.single-post h2{
+     color:var(--dark-col);
+     font-family: var(--heading-font);
+}
+
+.single-post article{
+     display: flex;
+     padding: 1rem;
+     border: 2px solid var(--dark-col);
+}
+
+.single-post article .image img{
+     width:50px;
+     height:50px;
+}
+.single-post p{
+     padding: 1rem;
+     font-size: 1.3rem;
+     background-color: var(--back-light);
+     width: 100%;
+}
+.single-post textarea{
+     background-color: var(--back-light);
+     width: 300px;
+     height: 100px;
+     font-size: 1.3rem;
+}

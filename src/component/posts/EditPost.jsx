@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { postUpdated } from "./postsSlice";
+import "../../assests/styles/post-css.css";
 
 export default function EditPost({ match }) {
   const { postId } = useParams();
@@ -9,44 +10,46 @@ export default function EditPost({ match }) {
   const post = useSelector((state) =>
     state.posts.find((post) => post.id === postId)
   );
-  const [title, setTitle] = useState(post.title);
+  
   const [content, setContent] = useState(post.content);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onTitleChange = (event) => setTitle(event.target.value);
   const onContentChange = (event) => setContent(event.target.value);
 
   const onPostSaveBtnClick = () => {
-    if (title && content) {
-      dispatch(postUpdated({ id: postId, title, content }));
+    if (content) {
+      dispatch(postUpdated({ id: postId, content }));
       navigate(`/posts/${postId}`);
     }
   };
 
   return (
-    <section>
-      <h2>Edit Post</h2>
-      <form>
-        <input
-          type="text"
-          id="postTitle"
-          name="postTitle"
-          placeholder="What's on your mind?"
-          value={title}
-          onChange={onTitleChange}
-        />
-        <textarea
-          id="postContent"
-          name="postContent"
-          value={content}
-          onChange={onContentChange}
-        />
-      </form>
-      <button type="button" onClick={onPostSaveBtnClick}>
-        Save Post
-      </button>
+    <section className="single-post">
+      <h2>Editing Post</h2>
+      <article>
+        <div className="image">
+          <img
+            src="https://picsum.photos/200"
+            alt="user profile"
+            className="avatar-image round-image"
+          />
+        </div>
+        <div className="post-data">
+          <form>
+            <textarea
+              id="postContent"
+              name="postContent"
+              value={content}
+              onChange={onContentChange}
+            />
+          </form>
+          <button type="button"  className="btn btn-left" onClick={onPostSaveBtnClick}>
+            Save Post
+          </button>
+        </div>
+      </article>
     </section>
   );
 }
