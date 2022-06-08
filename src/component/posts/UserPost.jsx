@@ -1,15 +1,16 @@
 import "../../assests/styles/userlist.css";
 import "../../assests/styles/createpost.css";
-import {
-  AiOutlineHeart,
-  AiOutlineMessage,
-  AiOutlineShareAlt,
-} from "react-icons/ai";
-import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
+// import {
+//   AiOutlineHeart,
+//   AiOutlineMessage,
+//   AiOutlineShareAlt,
+// } from "react-icons/ai";
+// import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import PostAuthors from "./PostAuthors";
 import { TimeAgo } from "./TimeAgo";
+import { ReactionBtn } from "./ReactionBtn";
 
 export default function UserPost() {
   const posts = useSelector((state) => state.posts);
@@ -22,21 +23,22 @@ export default function UserPost() {
     <div className="post-data" key={post.id}>
       <div className="post-username">
         <p className="user-name text-align-left">{post.title}</p>
-        <BsThreeDots />
+        {/* <BsThreeDots /> */}
       </div>
       <div>
         <PostAuthors userId={post.user} />
-        <TimeAgo timestamp={post.date}/>
+        <TimeAgo timestamp={post.date} />
       </div>
       <p className="user-post text-align-left">
         {post.content.substring(0, 100)}
       </p>
       <Link to={`/posts/${post.id}`}>View Post</Link>
       <div className="create-post-icon">
-        <AiOutlineHeart className="icon" />
+        <ReactionBtn post={post}/>
+        {/* <AiOutlineHeart className="icon" />
         <AiOutlineMessage className="icon" />
         <AiOutlineShareAlt className="icon" />
-        <BsBookmarkDash className="icon" />
+        <BsBookmarkDash className="icon" /> */}
       </div>
     </div>
   ));
