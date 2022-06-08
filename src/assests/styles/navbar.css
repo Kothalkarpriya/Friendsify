@@ -12,3 +12,9 @@ nav {
 span {
   color: var(--dark-col);
 }
+
+.home{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

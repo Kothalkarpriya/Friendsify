@@ -4,7 +4,6 @@ import { sub } from "date-fns";
 const initialState = [
   {
     id: "1",
-    title: "First Post!",
     content: "Hello!",
     date: sub(new Date(), { minutes: 10 }).toISOString(),
     reactions: {
@@ -17,7 +16,6 @@ const initialState = [
   },
   {
     id: "2",
-    title: "Second Post",
     content: "More text",
     date: sub(new Date(), { minutes: 5 }).toISOString(),
     reactions: {
@@ -34,17 +32,15 @@ const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    
     postAdded: {
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(title, content, userId) {
+      prepare(content, userId) {
         return {
           payload: {
             id: nanoid(),
             data: new Date().toISOString(),
-            title,
             content,
             user: userId,
             reactions: {
@@ -59,10 +55,9 @@ const postsSlice = createSlice({
       },
     },
     postUpdated(state, action) {
-      const { id, title, content } = action.payload;
+      const { id, content } = action.payload;
       const existingPost = state.find((post) => post.id === id);
       if (existingPost) {
-        existingPost.title = title;
         existingPost.content = content;
       }
     },

@@ -8,8 +8,7 @@
 .heading {
   color: var(--dark-col);
   font-size: 1.7rem;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
+  margin: 0;
   font-family: var(--heading-font);
 }
 

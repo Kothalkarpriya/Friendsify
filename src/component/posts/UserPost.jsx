@@ -34,7 +34,7 @@ export default function UserPost() {
       </p>
       <Link to={`/posts/${post.id}`}>View Post</Link>
       <div className="create-post-icon">
-        <ReactionBtn post={post}/>
+        <ReactionBtn post={post} />
         {/* <AiOutlineHeart className="icon" />
         <AiOutlineMessage className="icon" />
         <AiOutlineShareAlt className="icon" />

@@ -1,14 +1,12 @@
 import { CreatePost, UserPost } from "../../component/component";
+import "../../assests/styles/navbar.css";
 
 export default function Home() {
   return (
-    <main>
+    <main className="home">
       <CreatePost />
-      <h2 className="text-align-left heading">Latest Post</h2>
+      <h2 className="text-align-center heading">Latest Post</h2>
       <UserPost />
-      {/* <UserPost />
-      <UserPost />
-      <UserPost /> */}
     </main>
   );
 }
