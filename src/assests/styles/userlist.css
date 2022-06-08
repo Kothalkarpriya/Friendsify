@@ -26,7 +26,6 @@
 }
 .user-post-container .post-data {
   padding: 5px;
-  /* background-color: var(--back-light); */
 }
 
 .user-post-container .user-name {
@@ -48,4 +47,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-right: 1rem;
+}
+
+.post-data .create-post-icon .icon{
+  font-size: 1.5rem;
 }

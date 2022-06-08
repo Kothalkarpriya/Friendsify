@@ -3,10 +3,7 @@ import { reactionAdded } from "./postsSlice";
 
 const reactionEmoji = {
   thumbsUp: "👍",
-  hooray: "🎉",
   heart: "❤️",
-  rocket: "🚀",
-  eyes: "👀",
 };
 
 export function ReactionBtn({ post }) {
@@ -19,11 +16,12 @@ export function ReactionBtn({ post }) {
         onClick={() =>
           dispatch(reactionAdded({ postId: post.id, reaction: name }))
         }
+        className="icon"
       >
         {emoji}
         {post.reactions[name]}
       </button>
     );
   });
-  return <div>{reactionBtns}</div>;
+  return <>{reactionBtns}</>;
 }

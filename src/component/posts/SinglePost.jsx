@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import PostAuthors from "./PostAuthors";
+// import PostAuthors from "./PostAuthors";
+import "../../assests/styles/post-css.css";
 
 export default function SinglePost({ match }) {
   const { postId } = useParams();
@@ -17,14 +18,27 @@ export default function SinglePost({ match }) {
   }
 
   return (
-    <section>
-      <article>
-        <h2>{post.title}</h2>
-        <div>
+    <section className="single-post">
+      {/* <div>
           <PostAuthors userId={post.user} />
+        </div> */}
+      <h2>Editing Post</h2>
+      <article>
+        <div className="image">
+          <img
+            src="https://picsum.photos/200"
+            alt="user profile"
+            className="avatar-image round-image"
+          />
         </div>
-        <p>{post.content}</p>
-        <Link to={`/editPost/${post.id}`}>Edit Post</Link>
+        <div className="post-data">
+          <p>{post.content}</p>
+          <button type="text" className="btn btn-left">
+            <Link className="Link" to={`/editPost/${post.id}`}>
+              Edit Post
+            </Link>
+          </button>
+        </div>
       </article>
     </section>
   );
