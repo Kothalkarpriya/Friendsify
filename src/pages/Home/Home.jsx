@@ -6,9 +6,9 @@ export default function Home() {
       <CreatePost />
       <h2 className="text-align-left heading">Latest Post</h2>
       <UserPost />
+      {/* <UserPost />
       <UserPost />
-      <UserPost />
-      <UserPost />
+      <UserPost /> */}
     </main>
   );
 }
