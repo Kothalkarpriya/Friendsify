@@ -4,7 +4,7 @@ import LeftSideBar from "./Navbar/LeftSideBar";
 import RightSideBar from "./Navbar/RightSideBar";
 import CreatePost from "./posts/CreatePost";
 import PostFilter from "./filter/PostFilter";
-import UserList from "../component/userList/UserList.jsx";
+import UserList from "../component/user/UserList";
 import UserPost from "./posts/UserPost";
 import SinglePost from "./posts/SinglePost";
 import EditPost from "./posts/EditPost";
