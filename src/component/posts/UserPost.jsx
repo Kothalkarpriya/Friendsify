@@ -9,18 +9,24 @@ import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import PostAuthors from "./PostAuthors";
+import { TimeAgo } from "./TimeAgo";
 
 export default function UserPost() {
   const posts = useSelector((state) => state.posts);
 
-  const renderedPosts = posts.map((post) => (
+  const orderedPosts = posts
+    .slice()
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+  const renderedPosts = orderedPosts.map((post) => (
     <div className="post-data" key={post.id}>
       <div className="post-username">
         <p className="user-name text-align-left">{post.title}</p>
         <BsThreeDots />
       </div>
       <div>
-        <PostAuthors userId={post.user}/>
+        <PostAuthors userId={post.user} />
+        <TimeAgo timestamp={post.date}/>
       </div>
       <p className="user-post text-align-left">
         {post.content.substring(0, 100)}
