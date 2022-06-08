@@ -8,6 +8,7 @@ import {
 import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import PostAuthors from "./PostAuthors";
 
 export default function UserPost() {
   const posts = useSelector((state) => state.posts);
@@ -17,6 +18,9 @@ export default function UserPost() {
       <div className="post-username">
         <p className="user-name text-align-left">{post.title}</p>
         <BsThreeDots />
+      </div>
+      <div>
+        <PostAuthors userId={post.user}/>
       </div>
       <p className="user-post text-align-left">
         {post.content.substring(0, 100)}
@@ -31,7 +35,7 @@ export default function UserPost() {
     </div>
   ));
   return (
-    <section className="user-post-container">
+    <section className="user-post-container col-post">
       {/* <div className="image">
         <img
           src="https://picsum.photos/200"

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
+import PostAuthors from "./PostAuthors";
 
 export default function SinglePost({ match }) {
   const { postId } = useParams();
@@ -19,6 +20,9 @@ export default function SinglePost({ match }) {
     <section>
       <article>
         <h2>{post.title}</h2>
+        <div>
+          <PostAuthors userId={post.user} />
+        </div>
         <p>{post.content}</p>
         <Link to={`/editPost/${post.id}`}>Edit Post</Link>
       </article>
