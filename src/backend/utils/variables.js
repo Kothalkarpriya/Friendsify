@@ -1,0 +1,4 @@
+const OLD_FIRST = "OLD_FIRST";
+const NEW_FIRST = "NEW_FIRST";
+
+export { OLD_FIRST, NEW_FIRST };

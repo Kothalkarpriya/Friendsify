@@ -19,7 +19,7 @@ export const posts = [
     firstName: "Pavan",
     lastName: "Kothalkar",
     username: "pavankothalkar@gmail.com",
-    createdAt: formatDate(),
+    createdAt: new Date("26/02/2022"),
     updatedAt: formatDate(),
   },
   {
@@ -34,7 +34,7 @@ export const posts = [
     firstName: "Priya",
     lastName: "Kothalkar",
     username: "priyakothalkar@gmail.com",
-    createdAt: formatDate(),
+    createdAt: new Date("14/04/2022"),
     updatedAt: formatDate(),
   },
   {
@@ -49,7 +49,7 @@ export const posts = [
     firstName: "Nutan",
     lastName: "Bhoyar",
     username: "nutanbhoyar@gmail.com",
-    createdAt: formatDate(),
+    createdAt: new Date("04/12/2021"),
     updatedAt: formatDate(),
   },
   {
@@ -64,7 +64,7 @@ export const posts = [
     firstName: "Dipali",
     lastName: "Kharat",
     username: "dipalikharat@gmail.com",
-    createdAt: formatDate(),
+    createdAt: new Date("29/05/22"),
     updatedAt: formatDate(),
   },
   {
@@ -79,7 +79,7 @@ export const posts = [
     firstName: "Shubhangi",
     lastName: "Hiwale",
     username: "shubhangihiwale@gmail.com",
-    createdAt: formatDate(),
+    createdAt: new Date("09/06/2022"),
     updatedAt: formatDate(),
   },
 ];

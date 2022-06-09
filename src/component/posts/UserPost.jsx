@@ -62,7 +62,18 @@ export default function UserPost({ post }) {
       : dispatch(likedPost({ post, token }));
   };
 
-  // dislikedBy
+  const getDate = (createdAt) => {
+    const date = new Date(createdAt).toLocaleString("en-In", {
+      day: "2-digit",
+    });
+
+    const month = new Date(createdAt).toLocaleString("en-In", {
+      month: "short",
+    });
+
+    const year = new Date(createdAt).getFullYear();
+    return `${date} ${month} ${year}`;
+  };
 
   // const orderedPosts = post
   //   .slice()
@@ -86,6 +97,8 @@ export default function UserPost({ post }) {
             <p className="user-name text-align-left">
               {post?.firstname} {post?.lastname}
             </p>
+            <p className="user-name">@{post?.username}</p>
+            <p>{getDate(post?.createdAt)}</p>
             {/* <TimeAgo timestamp={post.date} /> */}
             <BsThreeDots />
           </div>
