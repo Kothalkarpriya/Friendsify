@@ -1,25 +1,41 @@
 import "../../assests/styles/auth.css";
 import "../../assests/styles/leftsidebar.css";
 import { AiOutlineRight } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { useAuth } from "../../context/context";
+import { login } from "../../redux/asynTunk/authTunk";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
   const [user, setUser] = useState({
     username: "priyakothalkar@gmail.com",
     password: "priya123",
   });
-
-  const { login } = useAuth();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const changeInputHandler = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser((user) => ({ ...user, [e.target.name]: e.target.value }));
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    login(user);
+    if (user.username && user.password) {
+      const response = await dispatch(login(user));
+      if (response?.payload?.status === 200) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify(response?.payload.data.foundUser)
+        );
+        localStorage.setItem("token", response?.payload.data.encodedToken);
+        navigate(location?.state?.from?.pathname || "/home", {
+          replace: true,
+        });
+      } else {
+        console.log("Something went wrong");
+      }
+    }
   };
   return (
     <main className="landing-main">
@@ -39,10 +55,9 @@ export default function Login() {
               placeholder="username@gmail.com"
               required
               name="email"
-              // eslint-disable-next-line no-undef
               value={user.username}
               // eslint-disable-next-line no-undef
-              onChange={(e) => changeInputHandler(e, username)}
+              onChange={(e) => changeInputHandler(e,username)}
             />
           </div>
           <div className="form-block">
@@ -55,10 +70,9 @@ export default function Login() {
               placeholder="**********"
               required
               name="password"
-              // eslint-disable-next-line no-undef
               value={user.password}
               // eslint-disable-next-line no-undef
-              onChange={(e) => changeInputHandler(e, password)}
+              onChange={(e)=>changeInputHandler(e,password)}
             />
           </div>
           <div className="form-block-check">
@@ -73,7 +87,10 @@ export default function Login() {
             </div>
           </div>
           <div className="form-block">
-            <button className="btn btn-left" type="submit">
+            <button
+              className="btn btn-left"             
+              type="submit"
+            >
               Login
             </button>
           </div>

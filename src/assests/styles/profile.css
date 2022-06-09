@@ -3,11 +3,16 @@
 .profile-container {
   margin: 1rem;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .avatar-image {
   width: 120px;
   height: 120px;
 }
+
 .image {
   padding: 0.5rem;
 }
@@ -17,6 +22,7 @@
   font-family: var(--heading-font);
   margin: 0.5rem;
 }
+
 .profile-container .btn {
   padding: 0.5rem 2rem;
   margin-bottom: 1rem;
@@ -29,12 +35,15 @@
   font-size: 1.3rem;
   font-weight: 600;
 }
+
 p {
   margin: 0.5rem;
 }
+
 .portfolio {
   color: var(--dark-col);
 }
+
 .follower-container {
   background-color: var(--highlight);
   display: flex;

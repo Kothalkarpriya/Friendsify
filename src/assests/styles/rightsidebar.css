@@ -21,12 +21,15 @@
   color: var(--dark-col);
   font-weight: 600;
 }
+
 .right-side-first .search:active {
   background-color: var(--highlight);
 }
+
 .right-side-container .icon {
   font-size: 1.3rem;
 }
+
 .right-side-second {
   display: flex;
   flex-direction: column;
@@ -39,6 +42,7 @@
   justify-content: space-between;
   margin-bottom: 10px;
 }
+
 .right-side-second .side-head p,
 .side-head button {
   padding: 5px;
@@ -54,6 +58,7 @@ button {
   background-color: var(--highlight);
   border: none;
 }
+
 .side-list {
   list-style: none;
   padding: 0;

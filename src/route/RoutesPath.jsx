@@ -9,7 +9,6 @@ import {
   SignIn,
   RequireAuth,
 } from "../pages/pages";
-import { SinglePost, EditPost } from "../component/component";
 
 export default function RoutesPath() {
   return (
@@ -44,23 +43,6 @@ export default function RoutesPath() {
         element={
           <RequireAuth>
             <BookMarks />
-          </RequireAuth>
-        }
-      />
-      <Route
-        exact
-        path="/posts/:postId"
-        element={
-          <RequireAuth>
-            <SinglePost />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="/editPost/:postId"
-        element={
-          <RequireAuth>
-            <EditPost />
           </RequireAuth>
         }
       />

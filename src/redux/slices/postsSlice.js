@@ -1,26 +1,12 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { sub } from "date-fns";
+import {
+  getPosts,
+  newPost,
+  deletePost,
+  editPost,
+} from "../asynTunk/postsThunk";
 
-const initialState = [
-  {
-    id: "1",
-    content: "Hello!",
-    date: sub(new Date(), { minutes: 10 }).toISOString(),
-    reactions: {
-      thumbsUp: 0,
-      heart: 0,
-    },
-  },
-  {
-    id: "2",
-    content: "More text",
-    date: sub(new Date(), { minutes: 5 }).toISOString(),
-    reactions: {
-      thumbsUp: 0,
-      heart: 0,
-    },
-  },
-];
+const initialState = { posts: [], bookmarks: [], isLoading: false };
 
 const postsSlice = createSlice({
   name: "posts",
@@ -59,6 +45,40 @@ const postsSlice = createSlice({
       if (existingPost) {
         existingPost.reactions[reaction]++;
       }
+    },
+  },
+  extraReducers: {
+    [getPosts.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getPosts.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+
+    [getPosts.rejected]: (state, action) => {
+      state.isLoading = false;
+    },
+    [newPost.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+    [newPost.rejected]: (state, action) => {
+      state.isLoading = false;
+    },
+    [editPost.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+    [editPost.rejected]: (state, action) => {
+      state.isLoading = false;
+    },
+    [deletePost.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+    [deletePost.rejected]: (state, action) => {
+      state.isLoading = false;
     },
   },
 });

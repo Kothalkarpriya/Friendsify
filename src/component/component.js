@@ -6,9 +6,10 @@ import CreatePost from "./posts/CreatePost";
 import PostFilter from "./filter/PostFilter";
 import UserList from "../component/user/UserList";
 import UserPost from "./posts/UserPost";
-import SinglePost from "./posts/SinglePost";
 import EditPost from "./posts/EditPost";
 import PostAuthors from "./posts/PostAuthors";
+import ProfileCard from "./profile/ProfileCard";
+import EditProfile from "./profile/EditProfile";
 
 export {
   Navbar,
@@ -19,7 +20,8 @@ export {
   PostFilter,
   UserList,
   UserPost,
-  SinglePost,
   EditPost,
-  PostAuthors
+  PostAuthors,
+  ProfileCard,
+  EditProfile
 };

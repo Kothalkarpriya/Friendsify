@@ -5,15 +5,18 @@
   max-width: 25rem;
   margin: 2rem auto;
 }
+
 .signin {
   max-width: max-content;
   margin: 2rem auto;
   padding: 1rem;
 }
+
 .login:hover,
 .signin:hover {
   box-shadow: var(--all-side-bold-shadow);
 }
+
 .login header,
 .signin header {
   font-size: 1.7rem;
@@ -29,14 +32,17 @@
   text-align: left;
   align-items: stretch;
 }
+
 .form-block-check {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
 }
+
 .form-block-check .input {
   font-size: 1.2rem;
 }
+
 .form-block input {
   padding: 0.5rem 1rem;
 }

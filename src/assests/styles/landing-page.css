@@ -3,6 +3,7 @@
 .landing-main {
   padding: 7rem 2rem;
 }
+
 .landing {
   display: flex;
   align-items: center;
@@ -16,6 +17,7 @@
 .landing:hover {
   box-shadow: var(--all-side-bold-shadow);
 }
+
 .landing article {
   display: flex;
   flex-direction: column;
@@ -26,6 +28,7 @@
 .landing-text {
   padding: 1rem;
 }
+
 .landing-text {
   font-size: small;
   padding: 1rem;
@@ -63,6 +66,7 @@ h1 {
   color: var(--dark-col);
   font-weight: bold;
 }
+
 .landing-btn .btn .Link {
   color: var(--back-light);
 }
