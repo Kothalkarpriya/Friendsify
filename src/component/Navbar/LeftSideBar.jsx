@@ -1,13 +1,17 @@
 import "../../assests/styles/leftsidebar.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdHome, MdExplore, MdOutlineBookmark } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
-import { useAuth } from "../../context/context";
-import { NavLink } from "react-router-dom";
+import { useDispatch,useSelector } from "react-redux";
+import {logout} from "../../redux/slices/authSlice";
 
 export default function LeftSideBar() {
-  const { authState, logout } = useAuth();
-  const { isLoggedIn } = authState;
+  const { token } = useSelector((state)=>state.auth);
+  const dispatch = useDispatch();
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  }
   return (
     <section className="left-side-container">
       <div className="left-side-first">
@@ -29,17 +33,21 @@ export default function LeftSideBar() {
         </Link>
       </div>
       <div className="left-side-second">
-        {isLoggedIn ? (
-          <NavLink to="/">
-            <button className="btn-left btn" onClick={() => logout()}>
-              Logout
-            </button>
-          </NavLink>
+        { token || localStorage.getItem("token") ? (
+        <NavLink to="/">
+          <button
+            className="btn-left btn"
+            onClick={logoutHandler}
+          >
+            Logout
+          </button>
+        </NavLink>
         ) : (
-          <NavLink to="/login">
-            <button className="btn-left btn">Login</button>
-          </NavLink>
-        )}
+        <NavLink to="/login">
+          <button className="btn-left btn">Login</button>
+        </NavLink>
+        )
+}
       </div>
     </section>
   );

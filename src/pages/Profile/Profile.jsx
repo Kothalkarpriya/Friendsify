@@ -39,8 +39,8 @@ export default function Profile() {
 
       <div className="posts">
         <h2 className="heading">Your Posts </h2>
-        <UserPost />
-        <UserPost />
+        {/* <UserPost />
+        <UserPost /> */}
       </div>
     </section>
   );

@@ -6,9 +6,9 @@ export default function Explore() {
     <main className="post-filter">
       <h2 className="heading text-align-left">Explore</h2>
       <PostFilter />
+      {/* <UserPost />
       <UserPost />
-      <UserPost />
-      <UserPost />
+      <UserPost /> */}
     </main>
   );
 }

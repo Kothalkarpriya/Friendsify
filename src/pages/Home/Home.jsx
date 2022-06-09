@@ -6,7 +6,7 @@ export default function Home() {
     <main className="home">
       <CreatePost />
       <h2 className="text-align-center heading">Latest Post</h2>
-      <UserPost />
+      {/* <UserPost /> */}
     </main>
   );
 }

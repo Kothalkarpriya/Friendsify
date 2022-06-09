@@ -5,8 +5,8 @@ export default function BookMarks() {
   return (
     <main className="bookmark">
       <h2 className="heading text-align-left">Your Bookmarks</h2>
-      <UserPost />
-      <UserPost />
+      {/* <UserPost />
+      <UserPost /> */}
     </main>
   );
 }
