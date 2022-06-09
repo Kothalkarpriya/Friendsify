@@ -2,13 +2,15 @@
 
 .single-post{
      padding: 1rem;
-     margin:2rem;
      box-shadow: var(--all-side-bold-shadow);
      background-color: var(--highlight);
 }
 
 .single-post h2{
-     color:var(--dark-col);
+     color:var(--back-light);
+     background-color: var(--dark-col);
+     padding: 1rem;
+     letter-spacing: 2px;
      font-family: var(--heading-font);
 }
 
@@ -33,4 +35,31 @@
      width: 300px;
      height: 100px;
      font-size: 1.3rem;
+}
+
+/* edit-modal */
+
+.modal-display-wrap{
+     display: flex;
+     flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  color: white;
+}
+
+.display-none{
+     display: none;
+}
+
+.playlist-modal{
+     border-radius: 0.5rem;
+  border: 3px solid white;
+  background-color: var(--back-light);
+  width: 20rem;
+  height: fit-content;
+  padding: 1rem;
 }

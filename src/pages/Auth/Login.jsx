@@ -18,15 +18,6 @@ export default function Login() {
   const changeInputHandler = (e) => {
     setUser((user) => ({ ...user, [e.target.name]: e.target.value }));
   };
-  // const guestUser = {
-  //   username: "priya@gmail.com",
-  //   password: "priya123",
-  // };
-
-  // const guestUserHandler = (e) => {
-  //   e.preventDefault();
-  //   setUser(guestUser);
-  // };
 
   const submit = async (e) => {
     e.preventDefault();
@@ -102,9 +93,6 @@ export default function Login() {
             >
               Login
             </button>
-            {/* <button className="btn btn-left" onClick={() => guestUserHandler}>
-              Guest Login
-            </button> */}
           </div>
         </form>
         <div className="form-block">

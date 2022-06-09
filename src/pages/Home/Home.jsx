@@ -21,6 +21,7 @@ export default function Home() {
 
   const homePosts = posts.filter((post) => homeUsers.includes(post.username));
   return (
+    <>
     <main className="home">
       <CreatePost />
       <h2 className="text-align-center heading">Latest Post</h2>
@@ -30,5 +31,6 @@ export default function Home() {
         <p>There are no posts to display</p>
       )}
     </main>
+    </>
   );
 }

@@ -1,28 +1,13 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 // import { sub } from "date-fns";
-import { getPosts } from "../asynTunk/postsThunk";
+import {
+  getPosts,
+  newPost,
+  deletePost,
+  editPost,
+} from "../asynTunk/postsThunk";
 
 const initialState = { posts: [], bookmarks: [], isLoading: false };
-// [
-//   {
-//     id: "1",
-//     content: "Hello!",
-//     date: sub(new Date(), { minutes: 10 }).toISOString(),
-//     reactions: {
-//       thumbsUp: 0,
-//       heart: 0,
-//     },
-//   },
-//   {
-//     id: "2",
-//     content: "More text",
-//     date: sub(new Date(), { minutes: 5 }).toISOString(),
-//     reactions: {
-//       thumbsUp: 0,
-//       heart: 0,
-//     },
-//   },
-// ];
 
 const postsSlice = createSlice({
   name: "posts",
@@ -74,7 +59,31 @@ const postsSlice = createSlice({
 
     [getPosts.rejected]: (state, action) => {
       state.isLoading = false;
-      console.error(action?.error?.message);
+      // console.error(action?.error?.message);
+    },
+    [newPost.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+    [newPost.rejected]: (state, action) => {
+      state.isLoading = false;
+      // toast.error(action.payload.data.errors[0]);
+    },
+    [editPost.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+    [editPost.rejected]: (state, action) => {
+      state.isLoading = false;
+      // toast.error(action?.payload?.data?.errors[0]);
+    },
+    [deletePost.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+    [deletePost.rejected]: (state, action) => {
+      state.isLoading = false;
+      // toast.error(action?.payload?.data?.errors[0]);
     },
   },
 });
