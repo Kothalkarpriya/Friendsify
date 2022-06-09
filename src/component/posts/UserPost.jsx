@@ -1,6 +1,6 @@
 import "../../assests/styles/userlist.css";
 import "../../assests/styles/createpost.css";
-import { AiOutlineMessage } from "react-icons/ai";
+import { AiOutlineMessage, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import { EditPost } from "../component";
@@ -9,9 +9,12 @@ import {
   bookmarkPost,
   removeBookMarkedPost,
 } from "../../redux/asynTunk/authTunk";
-import { deletePost } from "../../redux/asynTunk/postsThunk";
+import {
+  deletePost,
+  likedPost,
+  dislikedPost,
+} from "../../redux/asynTunk/postsThunk";
 // import { TimeAgo } from "./TimeAgo";
-// import { ReactionBtn } from "./ReactionBtn";
 
 export default function UserPost({ post }) {
   const dispatch = useDispatch();
@@ -45,6 +48,22 @@ export default function UserPost({ post }) {
     }
   };
 
+  const {
+    likes: { likedBy, likeCount },
+  } = post;
+
+  const isPostAlreadyLiked = likedBy.some(
+    (like) => like.username === user?.username
+  );
+
+  const likePostHandler = () => {
+    isPostAlreadyLiked
+      ? dispatch(dislikedPost({ post, token }))
+      : dispatch(likedPost({ post, token }));
+  };
+
+  // dislikedBy
+
   // const orderedPosts = post
   //   .slice()
   //   .sort((a, b) => b.date.localeCompare(a.date));
@@ -70,13 +89,24 @@ export default function UserPost({ post }) {
             {/* <TimeAgo timestamp={post.date} /> */}
             <BsThreeDots />
           </div>
-          {/* <PostAuthors userId={post.user} /> */}
 
           <p className="user-post text-align-left">{post?.content}</p>
 
           <div className="create-post-icon">
-            {/* <ReactionBtn post={post} /> */}
-            <AiOutlineMessage className="icon" />
+            <span>
+              {isPostAlreadyLiked ? (
+                <AiTwotoneLike className="icon" onClick={likePostHandler} />
+              ) : (
+                <AiOutlineLike className="icon" onClick={likePostHandler} />
+              )}
+              <p>{likeCount}</p>
+            </span>
+
+            <span>
+              <AiOutlineMessage className="icon" />
+              {/* <p>{post.comments.length}</p> */}
+            </span>
+
             <BsBookmarkDash className="icon" onClick={bookmarkPostHandler} />
             {isCurrentUserPost && (
               <>
@@ -105,11 +135,7 @@ export default function UserPost({ post }) {
           </div>
         </div>
         {isCurrentUserPost && modalDisplay ? (
-          <EditPost
-            modalDisplay
-            isEditPost={true}
-            postEditData={post}
-          />
+          <EditPost modalDisplay isEditPost={true} postEditData={post} />
         ) : null}
       </article>
     </section>
