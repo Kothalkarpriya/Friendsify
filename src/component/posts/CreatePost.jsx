@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { postAdded } from "./postsSlice";
+import { postAdded } from "../../redux/slices/postsSlice";
 
 export default function CreatePost() {
   const [content, setContent] = useState("");

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { postUpdated } from "./postsSlice";
+import { postUpdated } from "../../redux/slices/postsSlice";
 import "../../assests/styles/post-css.css";
 
 export default function EditPost({ match }) {
