@@ -8,6 +8,8 @@ import UserList from "../component/user/UserList";
 import UserPost from "./posts/UserPost";
 import EditPost from "./posts/EditPost";
 import PostAuthors from "./posts/PostAuthors";
+import ProfileCard from "./profile/ProfileCard";
+import EditProfile from "./profile/EditProfile";
 
 export {
   Navbar,
@@ -19,5 +21,7 @@ export {
   UserList,
   UserPost,
   EditPost,
-  PostAuthors
+  PostAuthors,
+  ProfileCard,
+  EditProfile
 };

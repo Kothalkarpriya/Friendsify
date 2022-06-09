@@ -107,7 +107,6 @@ export default function UserPost({ post }) {
         {isCurrentUserPost && modalDisplay ? (
           <EditPost
             modalDisplay
-            setModalDisplay
             isEditPost={true}
             postEditData={post}
           />

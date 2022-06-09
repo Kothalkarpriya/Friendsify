@@ -1,47 +1,45 @@
 import "../../assests/styles/profile.css";
 import "../../assests/styles/userlist.css";
-import { UserPost } from "../../component/component";
+import { UserPost, ProfileCard } from "../../component/component";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getPosts } from "../../redux/asynTunk/postsThunk";
 
 export default function Profile() {
+  const dispatch = useDispatch();
+
+  const { posts } = useSelector((state) => state.posts);
+  const { user } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
+  const currentLoggedInUserPosts = [...posts].filter(
+    (post) => user.username === post.username
+  );
+
   return (
-    <section className="profile-container">
-      <div className="image">
-        <img
-          src="https://picsum.photos/200"
-          alt="user profile"
-          className="avatar-image round-image text-align-center"
+    <main className="profile-main">
+      <article className="z-index">
+        <ProfileCard
+          profileDetails={user}
+          numberOfPosts={currentLoggedInUserPosts.length}
         />
-      </div>
-      <p className="user-name">UserName</p>
-      <div className="btn-container">
-        <button className="btn btn-left">Edit Profile</button>
-      </div>
+      </article>
 
-      <p className="bio">Full stack Developer</p>
-      <p className="portfolio">https://priya-kothalkar.netlify.app/</p>
-
-      <div className="profile-data">
-        <div className="follower-container">
-          <span className="follower">
-            <p className="count">0</p>
-            <p className="follower-detail">Following</p>
-          </span>
-          <span className="follower">
-            <p className="count">0</p>
-            <p className="follower-detail">Posts</p>
-          </span>
-          <span className="follower">
-            <p className="count">0</p>
-            <p className="follower-detail">Following</p>
-          </span>
+      <section className="profile-container">
+        <div className="posts">
+          <h2 className="heading">Your Posts </h2>
+          {currentLoggedInUserPosts.length > 0 ? (
+            [...currentLoggedInUserPosts]
+              ?.reverse()
+              .map((post) => <UserPost key={post._id} post={post} />)
+          ) : (
+            <h2>Post Something NOW !!!</h2>
+          )}
         </div>
-      </div>
-
-      <div className="posts">
-        <h2 className="heading">Your Posts </h2>
-        {/* <UserPost />
-        <UserPost /> */}
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

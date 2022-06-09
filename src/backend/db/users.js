@@ -28,7 +28,7 @@ export const users = [
       "https://ik.imagekit.io/priyakothalkar/IMG20200226121916_LZ8pOBhKt.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1654764001154",
     password: "priya123",
     bio: "Full stack developer enthusiast",
-    portfolio: "",
+    portfolio: "https://priya-kothalkar.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

@@ -2,11 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getUsers } from "../asynTunk/usersThunk";
 
 const initialState = { users: [], isLoading: false };
-// [
-//   { id: "0", name: "Tianna Jenkins" },
-//   { id: "1", name: "Kevin Grant" },
-//   { id: "2", name: "Madison Price" },
-// ];
 
 const usersSlice = createSlice({
   name: "users",

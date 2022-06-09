@@ -1,5 +1,4 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-// import { sub } from "date-fns";
 import {
   getPosts,
   newPost,
@@ -59,7 +58,6 @@ const postsSlice = createSlice({
 
     [getPosts.rejected]: (state, action) => {
       state.isLoading = false;
-      // console.error(action?.error?.message);
     },
     [newPost.fulfilled]: (state, action) => {
       state.isLoading = false;
@@ -67,7 +65,6 @@ const postsSlice = createSlice({
     },
     [newPost.rejected]: (state, action) => {
       state.isLoading = false;
-      // toast.error(action.payload.data.errors[0]);
     },
     [editPost.fulfilled]: (state, action) => {
       state.isLoading = false;
@@ -75,7 +72,6 @@ const postsSlice = createSlice({
     },
     [editPost.rejected]: (state, action) => {
       state.isLoading = false;
-      // toast.error(action?.payload?.data?.errors[0]);
     },
     [deletePost.fulfilled]: (state, action) => {
       state.isLoading = false;
@@ -83,7 +79,6 @@ const postsSlice = createSlice({
     },
     [deletePost.rejected]: (state, action) => {
       state.isLoading = false;
-      // toast.error(action?.payload?.data?.errors[0]);
     },
   },
 });
