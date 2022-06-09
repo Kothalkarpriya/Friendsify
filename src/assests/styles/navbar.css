@@ -9,11 +9,12 @@ nav {
   box-shadow: var(--bottom-shadow);
   font-family: var(--heading-font);
 }
+
 span {
   color: var(--dark-col);
 }
 
-.home{
+.home {
   display: flex;
   flex-direction: column;
   justify-content: center;

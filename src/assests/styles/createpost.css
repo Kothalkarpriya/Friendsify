@@ -31,7 +31,8 @@
   width: 100%;
 }
 
-.create-post-form .image img , .user-post-container article .image img {
+.create-post-form .image img,
+.user-post-container article .image img {
   width: 50px;
   height: 50px;
 }
@@ -62,13 +63,14 @@
   align-items: center;
   padding-right: 1rem;
 }
-.user-post-container article{
+
+.user-post-container article {
   display: flex;
   margin: 10px;
   width: 90%;
 }
 
-.btn .Link{
-  color:var(--back-light);
+.btn .Link {
+  color: var(--back-light);
   text-decoration: none;
 }

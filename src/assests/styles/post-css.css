@@ -1,36 +1,38 @@
 @import "./coolors.css";
 
-.single-post{
+.single-post {
      padding: 1rem;
      box-shadow: var(--all-side-bold-shadow);
      background-color: var(--highlight);
 }
 
-.single-post h2{
-     color:var(--back-light);
+.single-post h2 {
+     color: var(--back-light);
      background-color: var(--dark-col);
      padding: 1rem;
      letter-spacing: 2px;
      font-family: var(--heading-font);
 }
 
-.single-post article{
+.single-post article {
      display: flex;
      padding: 1rem;
      border: 2px solid var(--dark-col);
 }
 
-.single-post article .image img{
-     width:50px;
-     height:50px;
+.single-post article .image img {
+     width: 50px;
+     height: 50px;
 }
-.single-post p{
+
+.single-post p {
      padding: 1rem;
      font-size: 1.3rem;
      background-color: var(--back-light);
      width: 100%;
 }
-.single-post textarea{
+
+.single-post textarea {
      background-color: var(--back-light);
      width: 300px;
      height: 100px;
@@ -39,27 +41,64 @@
 
 /* edit-modal */
 
-.modal-display-wrap{
+.modal-display-wrap {
      display: flex;
      flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 600px;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 99;
-  color: white;
+     justify-content: center;
+     align-items: center;
+     width: 600px;
+     position: fixed;
+     background-color: rgba(0, 0, 0, 0.5);
+     z-index: 99;
+     color: white;
 }
 
-.display-none{
+.display-none {
      display: none;
 }
 
-.playlist-modal{
+.playlist-modal {
      border-radius: 0.5rem;
-  border: 3px solid white;
-  background-color: var(--back-light);
-  width: 20rem;
-  height: fit-content;
-  padding: 1rem;
+     border: 3px solid white;
+     background-color: var(--back-light);
+     width: 20rem;
+     height: fit-content;
+     padding: 1rem;
+}
+
+.z-index {
+     z-index: 99;
+}
+
+.z-index .modal-display-wrap {
+     max-width: 40rem;
+     height: 500px;
+     justify-content: unset;
+}
+
+.z-index .playlist-modal,
+.z-index .playlist-modal .image {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.z-index .image input[type="file"] {
+     background-color: var(--dark-col);
+     color: var(--highlight);
+     margin: 10px;
+}
+
+.z-index .playlist-modal input.portfolio {
+     background-color: var(--dark-col);
+     color: var(--back-light);
+     font-size: 1rem;
+     padding: 10px;
+     margin: 10px;
+}
+
+.z-index .bio {
+     width: fit-content;
+     margin: 10px;
 }

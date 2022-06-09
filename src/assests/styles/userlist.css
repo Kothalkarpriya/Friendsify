@@ -5,9 +5,10 @@
   justify-content: space-between;
   margin: 0.5rem 0;
 }
-.col-post{
+
+.col-post {
   flex-direction: column;
-  
+
 }
 
 .userlist-container .first {
@@ -18,12 +19,15 @@
   width: 30px;
   height: 30px;
 }
+
 .userlist-container .user-name,
-.user-post-container .user-name , .user-name{
+.user-post-container .user-name,
+.user-name {
   margin: 0 10px;
   color: var(--dark-col);
   font-weight: 600;
 }
+
 .user-post-container .post-data {
   padding: 5px;
 }
@@ -50,6 +54,6 @@
   padding-right: 1rem;
 }
 
-.post-data .create-post-icon .icon{
+.post-data .create-post-icon .icon {
   font-size: 1.5rem;
 }
