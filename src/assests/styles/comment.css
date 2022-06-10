@@ -1,0 +1,44 @@
+@import "./coolors.css";
+
+.comment-card {
+     border: 1px solid var(--dark-col);
+     padding: 10px;
+}
+
+.comment-card .comment-content {
+     display: flex;
+     flex-direction: column;
+}
+
+.comment-content .user-name {
+     font-size: 15px;
+}
+
+.comment-card .user-comment {
+     background-color: var(--back-light);
+     padding: 1rem;
+}
+
+.comment-card .btn-container {
+     justify-content: unset;
+}
+
+.comment-card .btn-container .btn {
+     font-size: unset;
+}
+
+.comment-box {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 0 !important;
+}
+
+.comment-box input {
+     width: 100%;
+     height: 20px;
+     margin: 10px;
+     padding: 5px;
+     background-color: var(--back-light);
+     border: 1px solid var(--dark-col);
+}

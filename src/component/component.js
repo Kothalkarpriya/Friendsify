@@ -10,6 +10,9 @@ import EditPost from "./posts/EditPost";
 import PostAuthors from "./posts/PostAuthors";
 import ProfileCard from "./profile/ProfileCard";
 import EditProfile from "./profile/EditProfile";
+import CommentBox from "./comment/CommentBox.jsx";
+import CommentCard from "./comment/CommentCard.jsx";
+import EditComment from "./comment/EditComment.jsx";
 
 export {
   Navbar,
@@ -23,5 +26,8 @@ export {
   EditPost,
   PostAuthors,
   ProfileCard,
-  EditProfile
+  EditProfile,
+  CommentBox,
+  CommentCard,
+  EditComment,
 };

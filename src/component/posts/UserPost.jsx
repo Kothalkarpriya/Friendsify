@@ -3,7 +3,7 @@ import "../../assests/styles/createpost.css";
 import { AiOutlineMessage, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
-import { EditPost } from "../component";
+import { EditPost, CommentBox, CommentCard } from "../component";
 import { useState } from "react";
 import {
   bookmarkPost,
@@ -14,7 +14,6 @@ import {
   likedPost,
   dislikedPost,
 } from "../../redux/asynTunk/postsThunk";
-// import { TimeAgo } from "./TimeAgo";
 
 export default function UserPost({ post }) {
   const dispatch = useDispatch();
@@ -22,14 +21,14 @@ export default function UserPost({ post }) {
   const { token, bookmarks, user } = useSelector((state) => state.auth);
 
   const alreadyBookmarked = bookmarks.some(
-    (bookmarkedpost) => bookmarkedpost._id === post._id
+    (bookmarkedpost) => bookmarkedpost === post._id
   );
 
-  const bookmarkPostHandler = () => {
+  const bookmarkPostHandler = async () => {
     if (alreadyBookmarked) {
-      dispatch(removeBookMarkedPost({ postId: post._id, token }));
+      await dispatch(removeBookMarkedPost({ postId: post._id, token }));
     } else {
-      dispatch(bookmarkPost({ postId: post._id, token }));
+      await dispatch(bookmarkPost({ postId: post._id, token }));
     }
   };
 
@@ -50,16 +49,17 @@ export default function UserPost({ post }) {
 
   const {
     likes: { likedBy, likeCount },
+    comments,
   } = post;
 
   const isPostAlreadyLiked = likedBy.some(
     (like) => like.username === user?.username
   );
 
-  const likePostHandler = () => {
+  const likePostHandler = async () => {
     isPostAlreadyLiked
-      ? dispatch(dislikedPost({ post, token }))
-      : dispatch(likedPost({ post, token }));
+      ? await dispatch(dislikedPost({ post, token }))
+      : await dispatch(likedPost({ post, token }));
   };
 
   const getDate = (createdAt) => {
@@ -75,19 +75,13 @@ export default function UserPost({ post }) {
     return `${date} ${month} ${year}`;
   };
 
-  // const orderedPosts = post
-  //   .slice()
-  //   .sort((a, b) => b.date.localeCompare(a.date));
-
-  // const renderedPosts = orderedPosts.map((post) => (
-
-  // ));
+  const latestCommentsOnTopArray = [...comments].reverse();
   return (
     <section className="user-post-container col-post">
       <article>
         <div className="image">
           <img
-            src="https://picsum.photos/200"
+            src={user.profilePic}
             alt="user profile"
             className="avatar-image round-image"
           />
@@ -99,7 +93,6 @@ export default function UserPost({ post }) {
             </p>
             <p className="user-name">@{post?.username}</p>
             <p>{getDate(post?.createdAt)}</p>
-            {/* <TimeAgo timestamp={post.date} /> */}
             <BsThreeDots />
           </div>
 
@@ -115,10 +108,7 @@ export default function UserPost({ post }) {
               <p>{likeCount}</p>
             </span>
 
-            <span>
-              <AiOutlineMessage className="icon" />
-              {/* <p>{post.comments.length}</p> */}
-            </span>
+            <AiOutlineMessage className="icon" />
 
             <BsBookmarkDash className="icon" onClick={bookmarkPostHandler} />
             {isCurrentUserPost && (
@@ -146,6 +136,13 @@ export default function UserPost({ post }) {
               </>
             )}
           </div>
+          <CommentBox postId={post._id} />
+          <p className="heading">Comments:</p>
+          {latestCommentsOnTopArray.length
+            ? latestCommentsOnTopArray.map((comment) => (
+                <CommentCard comment={comment} postId={post._Id} />
+              ))
+            : null}
         </div>
         {isCurrentUserPost && modalDisplay ? (
           <EditPost modalDisplay isEditPost={true} postEditData={post} />

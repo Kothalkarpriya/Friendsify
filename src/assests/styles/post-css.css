@@ -53,6 +53,8 @@
      color: white;
 }
 
+
+
 .display-none {
      display: none;
 }
@@ -101,4 +103,28 @@
 .z-index .bio {
      width: fit-content;
      margin: 10px;
+}
+
+/* comment-modal */
+.comment-modal{
+     position: relative;
+     width: auto;
+}
+.comment-modal h2{
+     margin: 0;
+     font-size: 1rem;
+     font-weight: 200;
+}
+
+.comment-modal .playlist-modal{
+     display: flex;
+     flex-direction: column;
+}
+.comment-modal .playlist-modal input {
+     height: 30px;
+     margin: 10px;
+}
+
+.comment-modal .btn-container{
+     justify-content: center;
 }
