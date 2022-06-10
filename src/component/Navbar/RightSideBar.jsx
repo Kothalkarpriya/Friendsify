@@ -1,6 +1,6 @@
 import "../../assests/styles/rightsidebar.css";
 import { AiOutlineSearch } from "react-icons/ai";
-import {UserList} from "../component.js";
+import { FollowerSugge } from "../component";
 
 export default function RightSideBar() {
   return (
@@ -18,10 +18,7 @@ export default function RightSideBar() {
           <p>Who to Follow?</p>
           <button>Show More</button>
         </div>
-        <UserList />
-        <UserList />
-        <UserList />
-        <UserList />
+        <FollowerSugge />
       </div>
     </aside>
   );

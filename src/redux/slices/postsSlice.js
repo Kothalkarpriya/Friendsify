@@ -19,7 +19,7 @@ const postsSlice = createSlice({
   reducers: {
     postAdded: {
       reducer(state, action) {
-        state.push(action.payload);
+        state(action.payload);
       },
       prepare(content, userId) {
         return {

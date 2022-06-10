@@ -37,7 +37,7 @@ export default function UserPost({ post }) {
   const deletePostHandler = () => {
     const response = dispatch(deletePost({ post, token }));
     try {
-      if (response?.payload.status === 201) {
+      if (response?.payload.status === 200) {
         console.log("Post deleted successfully");
       } else {
         console.log(`${response.payload.data.errors[0]}`);
