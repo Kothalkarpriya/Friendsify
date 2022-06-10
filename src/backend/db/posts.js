@@ -12,7 +12,7 @@ export const posts = [
     content:
       "I Am Pavan Kothalkar, a Butler at Vivanta Taj, Pune. I live in Pune. I am from Aurangabad, Maharashtra, India.",
     likes: {
-      likeCount: 0,
+      likeCount: 5,
       likedBy: [],
       dislikedBy: [],
     },
@@ -21,13 +21,33 @@ export const posts = [
     username: "pavankothalkar@gmail.com",
     createdAt: new Date("26/02/2022"),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: "priyakothalkar@gmail.com",
+        commentData: "Interesting",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        username: "nutanbhoyar@gmail.com",
+        commentData: "Wow!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
   {
     _id: uuid(),
     content:
       "I am Priya kothalkar a passionate learner. I am from Aurangabad. I am learning to become full stack developer. Right now I am doing an internship and learning from neogcamp",
     likes: {
-      likeCount: 0,
+      likeCount: 10,
       likedBy: [],
       dislikedBy: [],
     },
@@ -36,13 +56,33 @@ export const posts = [
     username: "priyakothalkar@gmail.com",
     createdAt: new Date("14/04/2022"),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: "priyakothalkar@gmail.com",
+        commentData: "Interesting",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        username: "nutanbhoyar@gmail.com",
+        commentData: "Wow!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
   {
     _id: uuid(),
     content:
       "I am Nutan Bhoyar. I am from Vashim. I am doing an internship and wanted to become an IAS officer.",
     likes: {
-      likeCount: 0,
+      likeCount: 6,
       likedBy: [],
       dislikedBy: [],
     },
@@ -51,13 +91,33 @@ export const posts = [
     username: "nutanbhoyar@gmail.com",
     createdAt: new Date("04/12/2021"),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: "priyakothalkar@gmail.com",
+        commentData: "Interesting",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        username: "nutanbhoyar@gmail.com",
+        commentData: "Wow!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
   {
     _id: uuid(),
     content:
       "I am Dipali kharat. I am from Devulgav, Jalna. I am doing an training at college of capgemini and practising questions to get a good job.",
     likes: {
-      likeCount: 0,
+      likeCount: 4,
       likedBy: [],
       dislikedBy: [],
     },
@@ -66,13 +126,33 @@ export const posts = [
     username: "dipalikharat@gmail.com",
     createdAt: new Date("29/05/22"),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: "priyakothalkar@gmail.com",
+        commentData: "Interesting",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        username: "nutanbhoyar@gmail.com",
+        commentData: "Wow!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
   {
     _id: uuid(),
     content:
       "I am Shubhangi Hiwale. I am from Jalna. I am doing an internship at YBI and practising questions to get a good job.",
     likes: {
-      likeCount: 0,
+      likeCount: 3,
       likedBy: [],
       dislikedBy: [],
     },
@@ -81,5 +161,25 @@ export const posts = [
     username: "shubhangihiwale@gmail.com",
     createdAt: new Date("09/06/2022"),
     updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: "priyakothalkar@gmail.com",
+        commentData: "Interesting",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        username: "nutanbhoyar@gmail.com",
+        commentData: "Wow!",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
 ];
