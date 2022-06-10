@@ -17,11 +17,6 @@ export default function ProfileCard({
   const { user, token } = useSelector((state) => state.auth);
   const {
     username,
-    firstName,
-    lastName,
-    profilePic,
-    bio,
-    portfolio,
     following,
     followers,
   } = profileDetails;
