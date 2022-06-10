@@ -18,6 +18,24 @@ export const users = [
       "https://ik.imagekit.io/priyakothalkar/IMG20200226114233_n5OUY3utd.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1654764001284",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    following: [
+      {
+        _id: uuid(),
+        firstName: "Priya",
+        lastName: "Kothalkar",
+        username: "priyakothalkar@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG20200226121916_LZ8pOBhKt.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1654764001154",
+      },
+      {
+        _id: "758567dc-73d2-48d8-a469-f47f8f7af485",
+        firstName: "Nutan",
+        lastName: "Bhoyar",
+        username: "nutanbhoyar@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG_20210212_225819_mPV-zMT8E.JPG?ik-sdk-version=javascript-1.4.3&updatedAt=1654764040768",
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -31,6 +49,24 @@ export const users = [
     portfolio: "https://priya-kothalkar.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    following: [
+      {
+        _id: uuid(),
+        firstName: "Dipali",
+        lastName: "Kharat",
+        username: "dipalikharat@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG_20191224_190139_h5wXS5x_4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1654763824671",
+      },
+      {
+        _id: "758567dc-73d2-48d8-a469-f47f8f7af485",
+        firstName: "Nutan",
+        lastName: "Bhoyar",
+        username: "nutanbhoyar@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG_20210212_225819_mPV-zMT8E.JPG?ik-sdk-version=javascript-1.4.3&updatedAt=1654764040768",
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -44,6 +80,24 @@ export const users = [
     portfolio: "https://www.linkedin.com/in/nutan-bhoyar-52746a190/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    following: [
+      {
+        _id: uuid(),
+        firstName: "Priya",
+        lastName: "Kothalkar",
+        username: "priyakothalkar@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG20200226121916_LZ8pOBhKt.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1654764001154",
+      },
+      {
+        _id: "758567dc-73d2-48d8-a469-f47f8f7af485",
+        firstName: "Nutan",
+        lastName: "Bhoyar",
+        username: "nutanbhoyar@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG_20210212_225819_mPV-zMT8E.JPG?ik-sdk-version=javascript-1.4.3&updatedAt=1654764040768",
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -57,6 +111,24 @@ export const users = [
     portfolio: "https://www.linkedin.com/in/dipali-kharat-1489831a1/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    following: [
+      {
+        _id: uuid(),
+        firstName: "Priya",
+        lastName: "Kothalkar",
+        username: "priyakothalkar@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG20200226121916_LZ8pOBhKt.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1654764001154",
+      },
+      {
+        _id: "758567dc-73d2-48d8-a469-f47f8f7af485",
+        firstName: "Nutan",
+        lastName: "Bhoyar",
+        username: "nutanbhoyar@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG_20210212_225819_mPV-zMT8E.JPG?ik-sdk-version=javascript-1.4.3&updatedAt=1654764040768",
+      },
+    ],
   },
   {
     _id: uuid(),
@@ -70,5 +142,23 @@ export const users = [
     portfolio: "https://www.linkedin.com/in/shubhangi-hiwale-262468190/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    following: [
+      {
+        _id: uuid(),
+        firstName: "Dipali",
+        lastName: "Kharat",
+        username: "dipalikharat@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG_20191224_190139_h5wXS5x_4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1654763824671",
+      },
+      {
+        _id: "758567dc-73d2-48d8-a469-f47f8f7af485",
+        firstName: "Nutan",
+        lastName: "Bhoyar",
+        username: "nutanbhoyar@gmail.com",
+        profilePic:
+          "https://ik.imagekit.io/priyakothalkar/IMG_20210212_225819_mPV-zMT8E.JPG?ik-sdk-version=javascript-1.4.3&updatedAt=1654764040768",
+      },
+    ],
   },
 ];

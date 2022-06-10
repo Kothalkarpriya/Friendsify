@@ -1,17 +1,19 @@
 import "../../assests/styles/userlist.css";
 import "../../assests/styles/createpost.css";
-import { AiOutlineMessage } from "react-icons/ai";
+import { AiOutlineMessage, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
-import { EditPost } from "../component";
+import { EditPost, CommentBox, CommentCard } from "../component";
 import { useState } from "react";
 import {
   bookmarkPost,
   removeBookMarkedPost,
 } from "../../redux/asynTunk/authTunk";
-import { deletePost } from "../../redux/asynTunk/postsThunk";
-// import { TimeAgo } from "./TimeAgo";
-// import { ReactionBtn } from "./ReactionBtn";
+import {
+  deletePost,
+  likedPost,
+  dislikedPost,
+} from "../../redux/asynTunk/postsThunk";
 
 export default function UserPost({ post }) {
   const dispatch = useDispatch();
@@ -19,14 +21,14 @@ export default function UserPost({ post }) {
   const { token, bookmarks, user } = useSelector((state) => state.auth);
 
   const alreadyBookmarked = bookmarks.some(
-    (bookmarkedpost) => bookmarkedpost._id === post._id
+    (bookmarkedpost) => bookmarkedpost === post._id
   );
 
-  const bookmarkPostHandler = () => {
+  const bookmarkPostHandler = async () => {
     if (alreadyBookmarked) {
-      dispatch(removeBookMarkedPost({ postId: post._id, token }));
+      await dispatch(removeBookMarkedPost({ postId: post._id, token }));
     } else {
-      dispatch(bookmarkPost({ postId: post._id, token }));
+      await dispatch(bookmarkPost({ postId: post._id, token }));
     }
   };
 
@@ -35,7 +37,7 @@ export default function UserPost({ post }) {
   const deletePostHandler = () => {
     const response = dispatch(deletePost({ post, token }));
     try {
-      if (response?.payload.status === 201) {
+      if (response?.payload.status === 200) {
         console.log("Post deleted successfully");
       } else {
         console.log(`${response.payload.data.errors[0]}`);
@@ -45,19 +47,41 @@ export default function UserPost({ post }) {
     }
   };
 
-  // const orderedPosts = post
-  //   .slice()
-  //   .sort((a, b) => b.date.localeCompare(a.date));
+  const {
+    likes: { likedBy, likeCount },
+    comments,
+  } = post;
 
-  // const renderedPosts = orderedPosts.map((post) => (
+  const isPostAlreadyLiked = likedBy.some(
+    (like) => like.username === user?.username
+  );
 
-  // ));
+  const likePostHandler = async () => {
+    isPostAlreadyLiked
+      ? await dispatch(dislikedPost({ post, token }))
+      : await dispatch(likedPost({ post, token }));
+  };
+
+  const getDate = (createdAt) => {
+    const date = new Date(createdAt).toLocaleString("en-In", {
+      day: "2-digit",
+    });
+
+    const month = new Date(createdAt).toLocaleString("en-In", {
+      month: "short",
+    });
+
+    const year = new Date(createdAt).getFullYear();
+    return `${date} ${month} ${year}`;
+  };
+
+  const latestCommentsOnTopArray = [...comments].reverse();
   return (
     <section className="user-post-container col-post">
       <article>
         <div className="image">
           <img
-            src="https://picsum.photos/200"
+            src={user.profilePic}
             alt="user profile"
             className="avatar-image round-image"
           />
@@ -67,16 +91,25 @@ export default function UserPost({ post }) {
             <p className="user-name text-align-left">
               {post?.firstname} {post?.lastname}
             </p>
-            {/* <TimeAgo timestamp={post.date} /> */}
+            <p className="user-name">@{post?.username}</p>
+            <p>{getDate(post?.createdAt)}</p>
             <BsThreeDots />
           </div>
-          {/* <PostAuthors userId={post.user} /> */}
 
           <p className="user-post text-align-left">{post?.content}</p>
 
           <div className="create-post-icon">
-            {/* <ReactionBtn post={post} /> */}
+            <span>
+              {isPostAlreadyLiked ? (
+                <AiTwotoneLike className="icon" onClick={likePostHandler} />
+              ) : (
+                <AiOutlineLike className="icon" onClick={likePostHandler} />
+              )}
+              <p>{likeCount}</p>
+            </span>
+
             <AiOutlineMessage className="icon" />
+
             <BsBookmarkDash className="icon" onClick={bookmarkPostHandler} />
             {isCurrentUserPost && (
               <>
@@ -103,13 +136,16 @@ export default function UserPost({ post }) {
               </>
             )}
           </div>
+          <CommentBox postId={post._id} />
+          <p className="heading">Comments:</p>
+          {latestCommentsOnTopArray.length
+            ? latestCommentsOnTopArray.map((comment) => (
+                <CommentCard comment={comment} postId={post._Id} />
+              ))
+            : null}
         </div>
         {isCurrentUserPost && modalDisplay ? (
-          <EditPost
-            modalDisplay
-            isEditPost={true}
-            postEditData={post}
-          />
+          <EditPost modalDisplay isEditPost={true} postEditData={post} />
         ) : null}
       </article>
     </section>

@@ -4,6 +4,11 @@ import {
   newPost,
   deletePost,
   editPost,
+  likedPost,
+  dislikedPost,
+  addComment,
+  deleteComment,
+  editComment,
 } from "../asynTunk/postsThunk";
 
 const initialState = { posts: [], bookmarks: [], isLoading: false };
@@ -14,7 +19,7 @@ const postsSlice = createSlice({
   reducers: {
     postAdded: {
       reducer(state, action) {
-        state.push(action.payload);
+        state(action.payload);
       },
       prepare(content, userId) {
         return {
@@ -56,28 +61,80 @@ const postsSlice = createSlice({
       state.posts = action.payload.data.posts;
     },
 
-    [getPosts.rejected]: (state, action) => {
+    [getPosts.rejected]: (state) => {
       state.isLoading = false;
     },
     [newPost.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.posts = action.payload.data.posts;
     },
-    [newPost.rejected]: (state, action) => {
+    [newPost.rejected]: (state) => {
       state.isLoading = false;
     },
     [editPost.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.posts = action.payload.data.posts;
     },
-    [editPost.rejected]: (state, action) => {
+    [editPost.rejected]: (state) => {
       state.isLoading = false;
     },
     [deletePost.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.posts = action.payload.data.posts;
     },
-    [deletePost.rejected]: (state, action) => {
+    [deletePost.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [likedPost.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [likedPost.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+    [likedPost.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [dislikedPost.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [dislikedPost.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+    [dislikedPost.rejected]: (state) => {
+      state.isLoading = false;
+    },
+
+    [addComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [addComment.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+
+    [addComment.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [editComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [editComment.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload.data.posts;
+    },
+    [editComment.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [deleteComment.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [deleteComment.fulfilled]: (state, action) => {
+      state.isLoading = true;
+      state.posts = action.payload.data.posts;
+    },
+    [deleteComment.rejected]: (state) => {
       state.isLoading = false;
     },
   },
