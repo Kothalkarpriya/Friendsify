@@ -6,22 +6,20 @@ import { getBookmarksForAuthUser } from "../../redux/asynTunk/usersThunk";
 
 export default function BookMarks() {
   const { token, bookmarks } = useSelector((state) => state.auth);
-
-  const { posts } = useSelector((state) => state.auth);
+  const { posts } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
 
-  const bookMarkedPost = posts?.filter((post) =>
+  const bookmarkedPost = posts?.filter((post) =>
     bookmarks.some((id) => id === post._id)
   );
-
   useEffect(() => {
     dispatch(getBookmarksForAuthUser(token));
   }, [dispatch, token]);
   return (
     <main className="bookmark">
       <h2 className="heading text-align-left">Your Bookmarks</h2>
-      {bookMarkedPost?.length ? (
-        bookMarkedPost.map((post) => <UserPost post={post} key={post._id} />)
+      {bookmarkedPost.length ? (
+        bookmarkedPost.map((post) => <UserPost post={post} key={post._id} />)
       ) : (
         <h2>No Bookmarked posts available</h2>
       )}
