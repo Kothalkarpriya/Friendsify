@@ -1,5 +1,6 @@
 import { CreatePost, UserPost } from "../../component/component";
 import "../../assests/styles/navbar.css";
+import {v4 as uuid} from "uuid";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../../redux/asynTunk/postsThunk";
@@ -23,7 +24,7 @@ export default function Home() {
   return (
     <>
       <main className="home">
-        <CreatePost />
+        <CreatePost key={uuid()}/>
         <h2 className="text-align-center heading">Latest Post</h2>
         {homePosts.length ? (
           homePosts.map((post) => <UserPost key={post._id} post={post} />)

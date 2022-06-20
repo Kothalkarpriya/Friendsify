@@ -11,12 +11,12 @@ export default function CommentCard({ comment, postId }) {
   const [modalDisplay, setModalDisplay] = useState(false);
   const isCurrentUserLoggedInUserComment = user.username === comment.username;
 
-  const deleteCommentHandler = async () => {
-    const response = await dispatch(
+  const deleteCommentHandler = () => {
+    const response = dispatch(
       deleteComment({ postId, commentId: comment._id, token })
     );
 
-    if (response?.payload.status === 201) {
+    if (response?.payload?.status === 201) {
       console.log("Successfully deleted comment");
     } else {
       console.log(`${response.payload.data.errors[0]}`);

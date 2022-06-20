@@ -76,6 +76,7 @@ export default function UserPost({ post }) {
   };
 
   const latestCommentsOnTopArray = [...comments].reverse();
+  // console.log(latestCommentsOnTopArray);
   return (
     <section className="user-post-container col-post">
       <article>
@@ -145,7 +146,7 @@ export default function UserPost({ post }) {
             : null}
         </div>
         {isCurrentUserPost && modalDisplay ? (
-          <EditPost modalDisplay isEditPost={true} postEditData={post} />
+          <EditPost modalDisplay isEditPost={true} postEditData={post} key={post.id}/>
         ) : null}
       </article>
     </section>

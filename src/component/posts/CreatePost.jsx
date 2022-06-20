@@ -5,24 +5,62 @@ import {
   AiOutlineSmile,
 } from "react-icons/ai";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { postAdded } from "../../redux/slices/postsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { newPost } from "../../redux/asynTunk/postsThunk";
+// import { postAdded } from "../../redux/slices/postsSlice";
 
-export default function CreatePost() {
-  const [content, setContent] = useState("");
+export default function CreatePost({
+  // modalDisplay,
+  isEditPost = false,
+  postEditData = {},
+}) {
+  // const [content, setContent] = useState("");
+
+  const [postDetail, setPostDetail] = useState({
+    content: isEditPost ? postEditData.content : "",
+  });
+
+  const { token } = useSelector((state) => state.auth);
+
+  const createPost = (data) => {
+    console.log(data, token);
+    try {
+      const response = dispatch(newPost({ postData: data, token }));
+
+      // console.log(response);
+      if (response.payload?.status === 201) {
+        console.log("Post created !");
+      } else {
+        console.log(response.payload.data.errors[0]);
+      }
+
+      setPostDetail({ content: "" });
+    } catch (error) {
+      console.log(error);
+    } 
+  };
+
+  const addPostHandler = () => {
+    if (postDetail.content !== "") {
+      createPost(postDetail);
+    } else {
+      console.log("Post Content can not be empty");
+    }
+    // closePostHandler();
+  };
 
   const dispatch = useDispatch();
 
-  const onContentChange = (event) => setContent(event.target.value);
+  // const onContentChange = (event) => setContent(event.target.value);
 
-  const onSavePostClicked = () => {
-    if (content) {
-      dispatch(postAdded(content));
-      setContent("");
-    }
-  };
+  // const onSavePostClicked = () => {
+  //   if (content) {
+  //     dispatch(postAdded(content));
+  //     setContent("");
+  //   }
+  // };
 
-  const canSave = Boolean(content);
+  // const canSave = Boolean(content);
 
   return (
     <section className="post-container">
@@ -38,8 +76,10 @@ export default function CreatePost() {
           <textarea
             placeholder="Write something interesting..."
             className="post-text"
-            value={content}
-            onChange={onContentChange}
+            value={postDetail.content}
+            onChange={(e) => {
+              setPostDetail((prev) => ({ ...prev, content: e.target.value }));
+            }}
           ></textarea>
           <div className="btn-container">
             <div className="create-post-icon">
@@ -49,8 +89,8 @@ export default function CreatePost() {
             </div>
             <button
               className="btn btn-left"
-              onClick={onSavePostClicked}
-              disabled={!canSave}
+              onClick={isEditPost ? "" : addPostHandler}
+              // disabled={!canSave}
               type="button"
             >
               Post
@@ -60,4 +100,4 @@ export default function CreatePost() {
       </form>
     </section>
   );
-} 
+}
