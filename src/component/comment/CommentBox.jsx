@@ -5,25 +5,19 @@ import "../../assests/styles/comment.css";
 
 export default function CommentBox({ postId }) {
   const { user, token } = useSelector((state) => state.auth);
-
   const { profilePic } = user;
   const dispatch = useDispatch();
-
   const [commentData, setCommentData] = useState("");
-
   const addCommentHandler = async () => {
     if (commentData === "") {
       console.log("comment cannot be Empty");
     } else {
-      const response = await dispatch(
-        addComment({ postId, commentData, token })
-      );
-      if (response?.payload.status === 201) {
+      const response = dispatch(addComment({ postId, commentData, token }));
+      if (response.payload?.status === 201) {
         console.log("Comments added successfully");
       } else {
         console.log(`${response.payload.data.errors[0]}`);
       }
-
       setCommentData("");
     }
   };
@@ -39,7 +33,7 @@ export default function CommentBox({ postId }) {
       <input
         value={commentData}
         placeholder="Comment here..."
-        onChange={(event) => setCommentData(event.target.value)}
+        onChange={(e) => setCommentData(e.target.value)}
       />
 
       <button className="btn btn-left" onClick={addCommentHandler}>

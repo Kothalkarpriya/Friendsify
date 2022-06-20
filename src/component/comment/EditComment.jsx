@@ -6,16 +6,13 @@ import "../../assests/styles/post-css.css";
 export default function EditComment({ modalDisplay, comment, postId }) {
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-
   const [modal, setModal] = useState(modalDisplay);
-
   const [commentDetail, setCommentDetail] = useState(comment.commentData || "");
-
   const editCommentHandler = async () => {
     if (commentDetail === "") {
       console.log("Comment can not be empty");
     } else {
-      const response = await dispatch(
+      const response = dispatch(
         editComment({
           postId,
           commentId: comment._id,
@@ -27,9 +24,9 @@ export default function EditComment({ modalDisplay, comment, postId }) {
       if (response?.payload.status === 201) {
         console.log("COmment has been edited");
       } else {
-        console.log(`${response.payload.data.errors[0]}`);
+        console.log(response);
+        // console.log(`${response.payload.data.errors[0]}`);
       }
-
       closeHandler();
     }
   };
@@ -37,6 +34,7 @@ export default function EditComment({ modalDisplay, comment, postId }) {
   const closeHandler = () => {
     setModal((modal) => !modal);
   };
+
   return (
     <section
       className={`${
@@ -52,7 +50,11 @@ export default function EditComment({ modalDisplay, comment, postId }) {
         />
 
         <div className="btn-container">
-          <button type="text" className="btn btn-left" onClick={closeHandler}>
+          <button
+            type="text"
+            className="btn btn-left"
+            onClick={() => closeHandler}
+          >
             Close
           </button>
           <button

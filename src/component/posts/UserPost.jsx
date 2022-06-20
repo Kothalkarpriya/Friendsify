@@ -1,5 +1,6 @@
 import "../../assests/styles/userlist.css";
 import "../../assests/styles/createpost.css";
+import { v4 as uuid } from "uuid";
 import { AiOutlineMessage, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
@@ -24,11 +25,11 @@ export default function UserPost({ post }) {
     (bookmarkedpost) => bookmarkedpost === post._id
   );
 
-  const bookmarkPostHandler = async () => {
+  const bookmarkPostHandler = () => {
     if (alreadyBookmarked) {
-      await dispatch(removeBookMarkedPost({ postId: post._id, token }));
+      dispatch(removeBookMarkedPost({ postId: post._id, token }));
     } else {
-      await dispatch(bookmarkPost({ postId: post._id, token }));
+      dispatch(bookmarkPost({ postId: post._id, token }));
     }
   };
 
@@ -56,10 +57,10 @@ export default function UserPost({ post }) {
     (like) => like.username === user?.username
   );
 
-  const likePostHandler = async () => {
+  const likePostHandler = () => {
     isPostAlreadyLiked
-      ? await dispatch(dislikedPost({ post, token }))
-      : await dispatch(likedPost({ post, token }));
+      ? dispatch(dislikedPost({ post, token }))
+      : dispatch(likedPost({ post, token }));
   };
 
   const getDate = (createdAt) => {
@@ -76,7 +77,6 @@ export default function UserPost({ post }) {
   };
 
   const latestCommentsOnTopArray = [...comments].reverse();
-  // console.log(latestCommentsOnTopArray);
   return (
     <section className="user-post-container col-post">
       <article>
@@ -137,16 +137,25 @@ export default function UserPost({ post }) {
               </>
             )}
           </div>
-          <CommentBox postId={post._id} />
+          <CommentBox postId={uuid()} />
           <p className="heading">Comments:</p>
           {latestCommentsOnTopArray.length
             ? latestCommentsOnTopArray.map((comment) => (
-                <CommentCard comment={comment} postId={post._Id} />
+                <CommentCard
+                  comment={comment}
+                  postId={post._id}
+                  key={post.__id}
+                />
               ))
             : null}
         </div>
         {isCurrentUserPost && modalDisplay ? (
-          <EditPost modalDisplay isEditPost={true} postEditData={post} key={post.id}/>
+          <EditPost
+            modalDisplay
+            isEditPost={true}
+            postEditData={post}
+            key={post.id}
+          />
         ) : null}
       </article>
     </section>

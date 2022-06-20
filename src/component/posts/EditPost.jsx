@@ -11,12 +11,9 @@ export default function EditPost({
   const [postDetail, setPostDetail] = useState({
     content: isEditPost ? postEditData.content : "",
   });
-
   const [modal, setModal] = useState(modalDisplay);
-
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
-
   const createPost = (data) => {
     try {
       const response = dispatch(newPost({ postData: data, token }));
@@ -25,7 +22,6 @@ export default function EditPost({
       } else {
         console.log(response.payload.data.errors[0]);
       }
-
       setPostDetail({ content: "" });
       closePostHandler();
     } catch (error) {
@@ -54,8 +50,6 @@ export default function EditPost({
     if (!isEditPost) {
       setPostDetail({ content: "" });
     }
-
-    // onClose();
   };
 
   const addPostHandler = () => {
@@ -64,9 +58,7 @@ export default function EditPost({
     } else {
       console.log("Post Content can not be empty");
     }
-    closePostHandler();
   };
-
   const editPostHandler = () => {
     if (postDetail.content !== "") {
       const editData = postDetail.content;

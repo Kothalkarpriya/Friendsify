@@ -7,15 +7,8 @@ import {
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { newPost } from "../../redux/asynTunk/postsThunk";
-// import { postAdded } from "../../redux/slices/postsSlice";
 
-export default function CreatePost({
-  // modalDisplay,
-  isEditPost = false,
-  postEditData = {},
-}) {
-  // const [content, setContent] = useState("");
-
+export default function CreatePost({ isEditPost = false, postEditData = {} }) {
   const [postDetail, setPostDetail] = useState({
     content: isEditPost ? postEditData.content : "",
   });
@@ -23,45 +16,26 @@ export default function CreatePost({
   const { token } = useSelector((state) => state.auth);
 
   const createPost = (data) => {
-    console.log(data, token);
     try {
       const response = dispatch(newPost({ postData: data, token }));
-
-      // console.log(response);
       if (response.payload?.status === 201) {
         console.log("Post created !");
       } else {
         console.log(response.payload.data.errors[0]);
       }
-
       setPostDetail({ content: "" });
     } catch (error) {
       console.log(error);
-    } 
+    }
   };
-
   const addPostHandler = () => {
     if (postDetail.content !== "") {
       createPost(postDetail);
     } else {
       console.log("Post Content can not be empty");
     }
-    // closePostHandler();
   };
-
   const dispatch = useDispatch();
-
-  // const onContentChange = (event) => setContent(event.target.value);
-
-  // const onSavePostClicked = () => {
-  //   if (content) {
-  //     dispatch(postAdded(content));
-  //     setContent("");
-  //   }
-  // };
-
-  // const canSave = Boolean(content);
-
   return (
     <section className="post-container">
       <form className="create-post-form">
@@ -90,7 +64,6 @@ export default function CreatePost({
             <button
               className="btn btn-left"
               onClick={isEditPost ? "" : addPostHandler}
-              // disabled={!canSave}
               type="button"
             >
               Post

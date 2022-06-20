@@ -18,9 +18,6 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     postAdded: {
-      reducer(state, action) {
-        state(action.payload);
-      },
       prepare(content, userId) {
         return {
           payload: {
@@ -60,7 +57,6 @@ const postsSlice = createSlice({
       state.isLoading = false;
       state.posts = action.payload.data.posts;
     },
-
     [getPosts.rejected]: (state) => {
       state.isLoading = false;
     },
@@ -105,7 +101,6 @@ const postsSlice = createSlice({
     [dislikedPost.rejected]: (state) => {
       state.isLoading = false;
     },
-
     [addComment.pending]: (state) => {
       state.isLoading = true;
     },
@@ -113,7 +108,6 @@ const postsSlice = createSlice({
       state.isLoading = false;
       state.posts = action.payload.data.posts;
     },
-
     [addComment.rejected]: (state) => {
       state.isLoading = false;
     },
