@@ -125,19 +125,19 @@ export default function UserPost({ post }) {
                     }
                   }}
                 >
-                  Edit Post
+                  Edit
                 </button>
                 <button
                   type="text"
                   onClick={deletePostHandler}
                   className="btn btn-left"
                 >
-                  Delete Post
+                  Delete
                 </button>
               </>
             )}
           </div>
-          <CommentBox postId={uuid()} />
+          <CommentBox postId={post._id} />
           <p className="heading">Comments:</p>
           {latestCommentsOnTopArray.length
             ? latestCommentsOnTopArray.map((comment) => (

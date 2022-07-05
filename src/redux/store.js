@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import postsReducer from "./slices/postsSlice";
 import usersReducer from "./slices/userSlice";
 import authReducer from "./slices/authSlice";
@@ -9,4 +9,7 @@ export const store = configureStore({
     users: usersReducer,
     auth: authReducer,
   },
+  // middleware: getDefaultMiddleware({
+  //   serializableCheck: false,
+  // }),
 });

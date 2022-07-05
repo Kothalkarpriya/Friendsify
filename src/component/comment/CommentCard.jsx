@@ -11,15 +11,15 @@ export default function CommentCard({ comment, postId }) {
   const isCurrentUserLoggedInUserComment = user.username === comment.username;
 
   const deleteCommentHandler = async () => {
-    const response = dispatch(
+    dispatch(
       deleteComment({ postId, commentId: comment._id, token })
     );
 
-    if (response?.payload.status === 201) {
-      console.log("Successfully deleted comment");
-    } else {
-      console.log(`${response.payload.data.errors[0]}`);
-    }
+    // if (response.payload?.status === 201) {
+    //   console.log("Successfully deleted comment");
+    // } else {
+    //   console.log(`${response.payload.data.errors[0]}`);
+    // }
   };
   return (
     <section className="comment-card">
@@ -44,14 +44,14 @@ export default function CommentCard({ comment, postId }) {
               }
             }}
           >
-            Edit Comment
+            Edit
           </button>
           <button
             type="text"
             onClick={deleteCommentHandler}
             className="btn btn-left"
           >
-            Delete Post
+            Delete
           </button>
         </div>
       ) : null}

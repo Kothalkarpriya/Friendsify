@@ -7,7 +7,6 @@ import { getPosts } from "../../redux/asynTunk/postsThunk";
 
 export default function Profile() {
   const dispatch = useDispatch();
-
   const { posts } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.auth);
 

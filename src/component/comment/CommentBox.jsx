@@ -8,16 +8,19 @@ export default function CommentBox({ postId }) {
   const { profilePic } = user;
   const dispatch = useDispatch();
   const [commentData, setCommentData] = useState("");
+
   const addCommentHandler = async () => {
     if (commentData === "") {
       console.log("comment cannot be Empty");
     } else {
-      const response = dispatch(addComment({ postId, commentData, token }));
-      if (response.payload?.status === 201) {
-        console.log("Comments added successfully");
-      } else {
-        console.log(`${response.payload.data.errors[0]}`);
-      }
+      dispatch(
+        addComment({ postId, commentData, token })
+      );
+      // if (response?.payload?.status === 201) {
+      //   console.log("Comments added successfully");
+      // } else {
+      //   console.log(`${response.payload.data.errors[0]}`);
+      // }
       setCommentData("");
     }
   };

@@ -17,12 +17,12 @@ export default function CreatePost({ isEditPost = false, postEditData = {} }) {
 
   const createPost = (data) => {
     try {
-      const response = dispatch(newPost({ postData: data, token }));
-      if (response.payload?.status === 201) {
-        console.log("Post created !");
-      } else {
-        console.log(response.payload.data.errors[0]);
-      }
+      dispatch(newPost({ postData: data, token }));
+      // if (response.payload?.status === 201) {
+      //   console.log("Post created !");
+      // } else {
+      //   console.log(response.payload.data.errors[0]);
+      // }
       setPostDetail({ content: "" });
     } catch (error) {
       console.log(error);
@@ -66,7 +66,7 @@ export default function CreatePost({ isEditPost = false, postEditData = {} }) {
               onClick={isEditPost ? "" : addPostHandler}
               type="button"
             >
-              Post
+             Create Post
             </button>
           </div>
         </div>

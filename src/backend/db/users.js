@@ -7,7 +7,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const users = [
   {
-    _id: uuid(),
+    _id: "3d20c971-c103-4793-972e-ef635cd5b3am",
     firstName: "Pavan",
     lastName: "Kothalkar",
     username: "pavankothalkar@gmail.com",
@@ -20,7 +20,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(),
+        _id: "3e9d4b61-21b2-429e-ae76-8ac78dd6dcpk",
         firstName: "Priya",
         lastName: "Kothalkar",
         username: "priyakothalkar@gmail.com",
@@ -38,7 +38,7 @@ export const users = [
     ],
   },
   {
-    _id: uuid(),
+    _id: "0ad4d0e8-c66e-464a-9a26-c56e40eb087b",
     firstName: "Priya",
     lastName: "Kothalkar",
     username: "priyakothalkar@gmail.com",
@@ -51,7 +51,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(),
+        _id: "71504065-167b-4866-a6ae-cc6b61837a9a",
         firstName: "Dipali",
         lastName: "Kharat",
         username: "dipalikharat@gmail.com",
@@ -69,7 +69,7 @@ export const users = [
     ],
   },
   {
-    _id: uuid(),
+    _id: "4b057a61-e1e5-438c-ba64-bb311d165285",
     firstName: "Nutan",
     lastName: "Bhoyar",
     username: "nutanbhoyar@gmail.com",
@@ -82,7 +82,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(),
+        _id: "43b7f04d-7763-407f-b917-94d6997c0e1a",
         firstName: "Priya",
         lastName: "Kothalkar",
         username: "priyakothalkar@gmail.com",
@@ -100,7 +100,7 @@ export const users = [
     ],
   },
   {
-    _id: uuid(),
+    _id: "bc881279-f184-46f9-b951-3f17596c22ff",
     firstName: "Dipali",
     lastName: "Kharat",
     username: "dipalikharat@gmail.com",
@@ -113,7 +113,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(),
+        _id: "68122852-2476-45a4-906a-72045487acd3",
         firstName: "Priya",
         lastName: "Kothalkar",
         username: "priyakothalkar@gmail.com",
@@ -131,7 +131,7 @@ export const users = [
     ],
   },
   {
-    _id: uuid(),
+    _id: "58b9636f-19f5-4f73-bace-0cb8b85f8bf9",
     firstName: "Shubhangi",
     lastName: "Hiwale",
     username: "shubhangihiwale@gmail.com",
@@ -144,7 +144,7 @@ export const users = [
     updatedAt: formatDate(),
     following: [
       {
-        _id: uuid(),
+        _id: "9d1a9942-0b15-4ca8-a0ed-8da1e4fbfe67",
         firstName: "Dipali",
         lastName: "Kharat",
         username: "dipalikharat@gmail.com",

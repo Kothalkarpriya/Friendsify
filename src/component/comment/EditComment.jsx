@@ -12,7 +12,7 @@ export default function EditComment({ modalDisplay, comment, postId }) {
     if (commentDetail === "") {
       console.log("Comment can not be empty");
     } else {
-      const response = dispatch(
+      const response = await dispatch(
         editComment({
           postId,
           commentId: comment._id,
@@ -50,11 +50,7 @@ export default function EditComment({ modalDisplay, comment, postId }) {
         />
 
         <div className="btn-container">
-          <button
-            type="text"
-            className="btn btn-left"
-            onClick={() => closeHandler}
-          >
+          <button type="text" className="btn btn-left" onClick={closeHandler}>
             Close
           </button>
           <button
@@ -62,7 +58,7 @@ export default function EditComment({ modalDisplay, comment, postId }) {
             onClick={editCommentHandler}
             className="btn btn-left"
           >
-            Update Comment
+            Update
           </button>
         </div>
       </article>

@@ -19,7 +19,6 @@ export default function Home() {
     : null;
 
   homeUsers = [...homeUsers, user.username];
-
   const homePosts = posts?.filter((post) => homeUsers.includes(post.username));
   return (
     <>
