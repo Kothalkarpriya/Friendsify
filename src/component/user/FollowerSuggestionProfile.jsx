@@ -9,41 +9,38 @@ export default function FollowerSuggestionsProfile({
 }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  // eslint-disable-next-line no-unused-vars
   const { token } = useSelector((state) => state.auth);
   const followUserHandler = async (userId, token) => {
-    const response = await dispatch(followUser({ userId, token }));
-    if (response.payload.status === 200) {
-      dispatch(updateUser(response.payload.data?.user));
-    } else {
-      console.log(response.payload.data.errors[0]);
-    }
-
-    return (
-      <section className="userlist-container">
-        <div className="first">
-          <img
-            className="avatar-image round-image"
-            alt="profile"
-            src={profilePic}
-            onClick={() => navigate(`/profile/${username}`)}
-          />
-          <p className="user-name">
-            {firstName}
-            {lastName}
-          </p>
-
-          <p className="user-name">@{username}</p>
-        </div>
-
-        <button
-          className="btn btn-left"
-          onClick={() => followUserHandler(_id, token)}
-        >
-          Follow
-        </button>
-      </section>
-    );
+    dispatch(followUser({ userId, token }));
+    // if (response.payload.status === 200) {
+    //   dispatch(updateUser(response.payload.data?.user));
+    // } else {
+    //   console.log(response.payload.data.errors[0]);
+    // }
   };
+  return (
+    <section className="userlist-container">
+      <div className="first">
+        <img
+          className="avatar-image round-image"
+          alt="profile"
+          src={profilePic}
+          onClick={() => navigate(`/profile/${username}`)}
+        />
+        <p className="user-name">
+          {firstName}
+          {lastName}
+        </p>
+
+        <p className="user-name">@{username}</p>
+      </div>
+
+      <button
+        className="btn btn-left"
+        onClick={() => followUserHandler(_id, token)}
+      >
+        Follow
+      </button>
+    </section>
+  );
 }

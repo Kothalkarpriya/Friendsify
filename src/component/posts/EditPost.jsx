@@ -16,12 +16,12 @@ export default function EditPost({
   const { token } = useSelector((state) => state.auth);
   const createPost = (data) => {
     try {
-      const response = dispatch(newPost({ postData: data, token }));
-      if (response?.payload.status === 201) {
-        console.log("Post Added successfully!");
-      } else {
-        console.log(response.payload.data.errors[0]);
-      }
+      dispatch(newPost({ postData: data, token }));
+      // if (response?.payload.status === 201) {
+      //   console.log("Post Added successfully!");
+      // } else {
+      //   console.log(response.payload.data.errors[0]);
+      // }
       setPostDetail({ content: "" });
       closePostHandler();
     } catch (error) {
@@ -31,14 +31,14 @@ export default function EditPost({
 
   const editPostAction = (updatedData) => {
     try {
-      const response = dispatch(
+      dispatch(
         editPost({ postData: { ...postEditData, content: updatedData }, token })
       );
-      if (response?.payload.status === 201) {
-        console.log("Post Updated successfully!");
-      } else {
-        console.log(response.payload.data.errors[0]);
-      }
+      // if (response?.payload.status === 201) {
+      //   console.log("Post Updated successfully!");
+      // } else {
+      //   console.log(response.payload.data.errors[0]);
+      // }
 
       closePostHandler();
     } catch (error) {

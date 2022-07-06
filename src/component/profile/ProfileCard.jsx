@@ -24,18 +24,18 @@ export default function ProfileCard({
   const isCurrentLoggedInUser = username === user.username;
 
   const followUserHandler = async () => {
-    const response = await dispatchEvent(
+   dispatchEvent(
       followUser({ userId: __dirname, token })
     );
-    if (response.payload.status === 200) {
-      dispatch(updateUser(response.payload.data?.user));
-    } else {
-      console.log(response.payload.data.error[0]);
-    }
+    // if (response.payload.status === 200) {
+    //   dispatch(updateUser(response.payload.data?.user));
+    // } else {
+    //   console.log(response.payload.data.error[0]);
+    // }
   };
 
   const unfollowUserHandler = async () => {
-    const response = await dispatch(unfollowUser({ userId: __dirname, token }));
+    const response = dispatch(unfollowUser({ userId: __dirname, token }));
     dispatch(updateUser(response?.payload.data.user));
   };
 

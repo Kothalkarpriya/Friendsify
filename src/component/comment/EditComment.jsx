@@ -25,7 +25,6 @@ export default function EditComment({ modalDisplay, comment, postId }) {
         console.log("COmment has been edited");
       } else {
         console.log(response);
-        // console.log(`${response.payload.data.errors[0]}`);
       }
       closeHandler();
     }

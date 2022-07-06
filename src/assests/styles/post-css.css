@@ -47,7 +47,7 @@
      justify-content: center;
      align-items: center;
      width: 600px;
-     position: fixed;
+     position: absolute;
      background-color: rgba(0, 0, 0, 0.5);
      z-index: 99;
      color: white;
@@ -106,25 +106,27 @@
 }
 
 /* comment-modal */
-.comment-modal{
+.comment-modal {
      position: relative;
      width: auto;
 }
-.comment-modal h2{
+
+.comment-modal h2 {
      margin: 0;
      font-size: 1rem;
      font-weight: 200;
 }
 
-.comment-modal .playlist-modal{
+.comment-modal .playlist-modal {
      display: flex;
      flex-direction: column;
 }
+
 .comment-modal .playlist-modal input {
      height: 30px;
      margin: 10px;
 }
 
-.comment-modal .btn-container{
+.comment-modal .btn-container {
      justify-content: center;
 }
