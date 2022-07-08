@@ -2,7 +2,7 @@
 
 footer {
   background-color: var(--teal-col);
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   font-family: var(--heading-font);
 }
 

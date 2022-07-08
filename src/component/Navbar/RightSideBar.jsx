@@ -16,7 +16,7 @@ export default function RightSideBar() {
       <div className="right-side-second">
         <div className="side-head">
           <p>Who to Follow?</p>
-          <button>Show More</button>
+          {/* <button>Show More</button> */}
         </div>
         <FollowerSugge />
       </div>

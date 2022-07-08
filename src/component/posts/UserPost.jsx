@@ -1,6 +1,5 @@
 import "../../assests/styles/userlist.css";
 import "../../assests/styles/createpost.css";
-import { v4 as uuid } from "uuid";
 import { AiOutlineMessage, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
@@ -36,16 +35,16 @@ export default function UserPost({ post }) {
   const isCurrentUserPost = user.username === post.username;
 
   const deletePostHandler = () => {
-    const response = dispatch(deletePost({ post, token }));
-    try {
-      if (response?.payload.status === 200) {
-        console.log("Post deleted successfully");
-      } else {
-        console.log(`${response.payload.data.errors[0]}`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(deletePost({ post, token }));
+    // try {
+    //   if (response?.payload.status === 200) {
+    //     console.log("Post deleted successfully");
+    //   } else {
+    //     console.log(`${response.payload.data.errors[0]}`);
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   const {
@@ -87,7 +86,7 @@ export default function UserPost({ post }) {
             className="avatar-image round-image"
           />
         </div>
-        <div className="post-data" key={post.id}>
+        <div className="post-data">
           <div className="post-username">
             <p className="user-name text-align-left">
               {post?.firstname} {post?.lastname}
@@ -144,7 +143,7 @@ export default function UserPost({ post }) {
                 <CommentCard
                   comment={comment}
                   postId={post._id}
-                  key={post.__id}
+                  key={post._id}
                 />
               ))
             : null}
@@ -154,7 +153,7 @@ export default function UserPost({ post }) {
             modalDisplay
             isEditPost={true}
             postEditData={post}
-            key={post.id}
+            key={post._id}
           />
         ) : null}
       </article>
