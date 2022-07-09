@@ -9,13 +9,18 @@ export default function Home() {
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.auth);
+  // const {users} = useSelector((state)=>state.users);
+
+  // const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+  // let storeCurrentUser =users && users.filter((item)=>item.username === user.username);
 
-  let homeUsers = user.following
-    ? user.following.map((user) => user.username)
+  let homeUsers = user?.following
+    ? user?.following.map((user) => user.username)
     : null;
 
   homeUsers = [...homeUsers, user.username];

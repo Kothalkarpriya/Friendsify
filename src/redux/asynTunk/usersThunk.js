@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { editUser } from "./authTunk";
 
 const getUsers = createAsyncThunk("users/allUsers", async (rejectWithValue) => {
   try {
@@ -34,7 +35,7 @@ const getBookmarksForAuthUser = createAsyncThunk(
 
 const followUser = createAsyncThunk(
   "users/follow",
-  async ({ userId, token }, { rejectWithValue }) => {
+  async ({ userId, token, dispatch }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         `/api/users/follow/${userId}`,
@@ -42,7 +43,7 @@ const followUser = createAsyncThunk(
         { headers: { authorization: token } }
       );
       const data = { data: response.data, status: response.status };
-      console.log(data);
+      dispatch(editUser({ user: response.data.user, token }));
       return data;
     } catch (error) {
       return rejectWithValue({

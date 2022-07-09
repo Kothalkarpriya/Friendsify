@@ -17,16 +17,18 @@ export default function FollowerSuggestion() {
   //     !user.following.some((user) => user.username === item.username)
   // ));
 
+  // console.log(user);
+
   useEffect(() => {
     setList(
       users.filter(
         (item) =>
-          item.username !== user.username &&
-          !user.following.some((user) => user.username === item.username)
+          item._id !== user._id &&
+          !user.following.some((user) => user._id === item._id)
       )
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [users]);
+  }, [users, user]);
 
   useEffect(() => {
     dispatch(getUsers());

@@ -86,4 +86,22 @@ const removeBookMarkedPost = createAsyncThunk(
   }
 );
 
+// const updateCurrentUser = createAsyncThunk(
+//   "auth/updateUser",
+//   async ({ user, token }, { rejectWithValue }) => {
+//     try {
+//       const response = await axios.post(
+//         `/api/users/edit`,
+//         { userData: user },
+//         { headers: { authorization: token } }
+//       );
+
+//       const data = { data: response.data.user, status: response.status };
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.response.data);
+//     }
+//   }
+// );
+
 export { login, signup, bookmarkPost, removeBookMarkedPost, editUser };

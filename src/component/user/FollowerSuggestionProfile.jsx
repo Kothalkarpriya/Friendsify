@@ -11,7 +11,8 @@ export default function FollowerSuggestionsProfile({
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
   const followUserHandler = async (userId, token) => {
-    dispatch(followUser({ userId, token }));
+    dispatch(followUser({ userId, token , dispatch}));
+    // dispatch(updateUser());
     // if (response.payload.status === 200) {
     //   dispatch(updateUser(response.payload.data?.user));
     // } else {
@@ -32,7 +33,7 @@ export default function FollowerSuggestionsProfile({
           {lastName}
         </p>
 
-        <p className="user-name">@{username}</p>
+        {/* <p className="user-name">@{username}</p> */}
       </div>
 
       <button

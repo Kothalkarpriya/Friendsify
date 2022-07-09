@@ -91,7 +91,7 @@ export default function ProfileCard({
           <div className="follower-container">
             <span className="follower">
               <p className="count">{followers?.length}</p>
-              <p className="follower-detail">Following</p>
+              <p className="follower-detail">Followers</p>
             </span>
             <span className="follower">
               <p className="count">{numberOfPosts}</p>

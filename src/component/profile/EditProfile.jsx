@@ -83,6 +83,7 @@ export default function EditProfile({ userProfile, modalDisplay }) {
           className="bio"
           value={userData?.bio}
           onChange={inputChangeHandler}
+          name="bio"
         />
         <input
           className="portfolio"
