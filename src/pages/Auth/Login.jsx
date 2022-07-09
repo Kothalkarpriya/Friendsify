@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 
 export default function Login() {
   const [user, setUser] = useState({
-    username: "priyakothalkar@gmail.com",
+    username: "priyakothalkar",
     password: "priya123",
   });
   const dispatch = useDispatch();
@@ -47,11 +47,11 @@ export default function Login() {
         <form action="#" onSubmit={submit}>
           <div className="form-block">
             <label className="label" htmlFor="#input-email">
-              Email Address
+              Username
             </label>
             <input
               id="input-email"
-              type="email"
+              type="text"
               placeholder="username@gmail.com"
               required
               name="email"
