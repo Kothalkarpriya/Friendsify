@@ -1,5 +1,5 @@
 import "../../assests/styles/auth.css";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
 import { useState } from "react";
 import { signup } from "../../redux/asynTunk/authTunk";
@@ -14,9 +14,9 @@ export default function SignIn() {
     confirmpassword: "",
   });
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useLocation();
+  // const location = useLocation();
   // const { signup } = useAuth();
 
   const changeInputHandler = (e) => {
@@ -35,23 +35,23 @@ export default function SignIn() {
 
   const submit = async (e) => {
     if (validateInput()) {
-      if (user.password === user.confirmpassword) {
-        const response = await dispatch(signup(user));
-        if (response?.payload?.status === 201) {
-          localStorage.setItem(
-            "user",
-            JSON.stringify(response.payload.data.createdUser)
-          );
-          localStorage.setItem("token", response.payload.data.encodedToken);
-          navigate(location?.state?.from?.pathname || "/home", {
-            replace: true,
-          });
-        } else {
-          console.log("Something went wrong");
-        }
-      } else {
-        console.log("Passwords do not match");
-      }
+      // if (user.password === user.confirmpassword) {
+         dispatch(signup(user));
+        // if (response?.payload?.status === 201) {
+        //   localStorage.setItem(
+        //     "user",
+        //     JSON.stringify(response.payload.data.createdUser)
+        //   );
+        //   localStorage.setItem("token", response.payload.data.encodedToken);
+        //   navigate(location?.state?.from?.pathname || "/home", {
+        //     replace: true,
+        //   });
+        // } else {
+        //   console.log("Something went wrong");
+        // }
+      // } else {
+      //   console.log("Passwords do not match");
+      // }
     } else {
       console.log("Enter all the details");
     }
@@ -74,7 +74,8 @@ export default function SignIn() {
                 id="input-firstName"
                 placeholder="First Name"
                 required
-                value={user.firstName}
+                name="firstName"
+                // value={user.firstName}
                 onChange={(e) => changeInputHandler(e)}
               />
             </div>
@@ -87,7 +88,8 @@ export default function SignIn() {
                 id="input-lastName"
                 placeholder="Last Name"
                 required
-                value={user.lastName}
+                name="lastName"
+                // value={user.lastName}
                 onChange={(e) => changeInputHandler(e)}
               />
             </div>
@@ -101,7 +103,8 @@ export default function SignIn() {
               type="email"
               placeholder="username@gmail.com"
               required
-              value={user.username}
+              name="username"
+              // value={user.username}
               onChange={(e) => changeInputHandler(e)}
             />
           </div>
@@ -114,7 +117,8 @@ export default function SignIn() {
               id="input-pass"
               placeholder="**********"
               required
-              value={user.password}
+              name="password"
+              // value={user.password}
               onChange={(e) => changeInputHandler(e)}
             />
           </div>
@@ -127,13 +131,14 @@ export default function SignIn() {
               id="input-pass-again"
               placeholder="**********"
               required
-              value={user.confirmpassword}
+              name="confirmpassword"
+              // value={user.confirmpassword}
               onChange={(e) => changeInputHandler(e)}
             />
           </div>
           <div className="form-block-check">
             <div className="input">
-              <input type="checkbox" required />
+              <input type="checkbox" />
               Show Password
             </div>
             <div className="input">

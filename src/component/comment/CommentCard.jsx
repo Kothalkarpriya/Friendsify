@@ -11,15 +11,7 @@ export default function CommentCard({ comment, postId }) {
   const isCurrentUserLoggedInUserComment = user.username === comment.username;
 
   const deleteCommentHandler = async () => {
-    dispatch(
-      deleteComment({ postId, commentId: comment._id, token })
-    );
-
-    // if (response.payload?.status === 201) {
-    //   console.log("Successfully deleted comment");
-    // } else {
-    //   console.log(`${response.payload.data.errors[0]}`);
-    // }
+    dispatch(deleteComment({ postId, commentId: comment._id, token }));
   };
   return (
     <section className="comment-card">
@@ -27,7 +19,7 @@ export default function CommentCard({ comment, postId }) {
         <EditComment modalDisplay comment={comment} postId={postId} />
       )}
       <div className="comment-content">
-        <p className="user-name text-align-left">User: {comment.username}</p>
+        <p className="user-name text-align-left">@{comment.username}</p>
         <p className="user-comment ">{comment.commentData}</p>
       </div>
 

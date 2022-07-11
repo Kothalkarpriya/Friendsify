@@ -42,14 +42,14 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
     following: [
-      {
-        _id: "bc881279-f184-46f9-b951-3f17596c22ff",
-        firstName: "Dipali",
-        lastName: "Kharat",
-        username: "dipalikharat",
-        profilePic:
-          "https://ik.imagekit.io/priyakothalkar/IMG_20191224_190139_h5wXS5x_4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1654763824671",
-      },
+      // {
+      //   _id: "bc881279-f184-46f9-b951-3f17596c22ff",
+      //   firstName: "Dipali",
+      //   lastName: "Kharat",
+      //   username: "dipalikharat",
+      //   profilePic:
+      //     "https://ik.imagekit.io/priyakothalkar/IMG_20191224_190139_h5wXS5x_4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1654763824671",
+      // },
     ],
   },
   {

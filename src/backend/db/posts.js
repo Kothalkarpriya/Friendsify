@@ -24,8 +24,8 @@ export const posts = [
     comments: [
       {
         _id: "060015f6-e8b8-4a80-b5df-39c6b9998a75",
-        username: "nutanbhoyar",
-        commentData: "Wow!",
+        username: "dipalikharat",
+        commentData: "Hey Great!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -76,8 +76,8 @@ export const posts = [
     comments: [
       {
         _id: "3636d90e-0a7d-42a3-969e-49ed3513ff72",
-        username: "nutanbhoyar",
-        commentData: "Wow!",
+        username: "pavankothalkar",
+        commentData: "Ohh! Good",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -102,8 +102,8 @@ export const posts = [
     comments: [
       {
         _id: "ec7978dd-46d7-46d1-8835-1ee4cdeb942c",
-        username: "nutanbhoyar",
-        commentData: "Wow!",
+        username: "shubhangihiwale",
+        commentData: "Good intro!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -128,8 +128,8 @@ export const posts = [
     comments: [
       {
         _id: "5b551783-7aea-4543-b508-8f7f41ed1695",
-        username: "nutanbhoyar",
-        commentData: "Wow!",
+        username: "dipalikharat",
+        commentData: "Inspiring!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],

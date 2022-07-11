@@ -4,8 +4,7 @@ import { addComment } from "../../redux/asynTunk/postsThunk";
 import "../../assests/styles/comment.css";
 
 export default function CommentBox({ postId }) {
-  const { user, token } = useSelector((state) => state.auth);
-  const { profilePic } = user;
+  const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [commentData, setCommentData] = useState("");
 
@@ -16,23 +15,11 @@ export default function CommentBox({ postId }) {
       dispatch(
         addComment({ postId, commentData, token })
       );
-      // if (response?.payload?.status === 201) {
-      //   console.log("Comments added successfully");
-      // } else {
-      //   console.log(`${response.payload.data.errors[0]}`);
-      // }
       setCommentData("");
     }
   };
   return (
     <article className="comment-box">
-      <div className="image">
-        <img
-          src={profilePic}
-          alt="profile Pic"
-          className="avatar-image round-image"
-        />
-      </div>
       <input
         value={commentData}
         placeholder="Comment here..."

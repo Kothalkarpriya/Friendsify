@@ -2,9 +2,9 @@ import "../../assests/styles/post-filter.css";
 import { NEW_FIRST, OLD_FIRST } from "../../backend/utils/variables";
 
 export default function PostFilter({
-  trending,
+  // trending,
   setTrending,
-  sortBy,
+  // sortBy,
   setSortBy,
 }) {
   return (
@@ -26,14 +26,14 @@ export default function PostFilter({
         >
           <button value={`${NEW_FIRST}`}>Trending </button>
         </li>
-        <li
+        {/* <li
           onClick={() => {
             setSortBy();
             setTrending(true);
           }}
         >
           <button>Recent</button>
-        </li>
+        </li> */}
       </ul>
     </section>
   );

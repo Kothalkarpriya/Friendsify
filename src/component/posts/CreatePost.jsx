@@ -1,9 +1,4 @@
 import "../../assests/styles/createpost.css";
-import {
-  AiOutlineFileGif,
-  AiOutlineFileImage,
-  AiOutlineSmile,
-} from "react-icons/ai";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { newPost } from "../../redux/asynTunk/postsThunk";
@@ -13,16 +8,11 @@ export default function CreatePost({ isEditPost = false, postEditData = {} }) {
     content: isEditPost ? postEditData.content : "",
   });
 
-  const { token } = useSelector((state) => state.auth);
+  const { token , user} = useSelector((state) => state.auth);
 
   const createPost = (data) => {
     try {
       dispatch(newPost({ postData: data, token }));
-      // if (response.payload?.status === 201) {
-      //   console.log("Post created !");
-      // } else {
-      //   console.log(response.payload.data.errors[0]);
-      // }
       setPostDetail({ content: "" });
     } catch (error) {
       console.log(error);
@@ -41,7 +31,7 @@ export default function CreatePost({ isEditPost = false, postEditData = {} }) {
       <form className="create-post-form">
         <div className="image">
           <img
-            src="https://picsum.photos/200"
+            src={user.profilePic}
             alt="user profile"
             className="avatar-image round-image"
           />
@@ -55,21 +45,22 @@ export default function CreatePost({ isEditPost = false, postEditData = {} }) {
               setPostDetail((prev) => ({ ...prev, content: e.target.value }));
             }}
           ></textarea>
-          <div className="btn-container">
-            <div className="create-post-icon">
+          
+        </div>
+        <div className="btn-container">
+            {/* <div className="create-post-icon">
               <AiOutlineFileImage className="icon" />
               <AiOutlineFileGif className="icon" />
               <AiOutlineSmile className="icon" />
-            </div>
+            </div> */}
             <button
               className="btn btn-left"
               onClick={isEditPost ? "" : addPostHandler}
               type="button"
             >
-             Create Post
+              Create Post
             </button>
           </div>
-        </div>
       </form>
     </section>
   );

@@ -1,7 +1,7 @@
 import "../../assests/styles/userlist.css";
 import "../../assests/styles/createpost.css";
-import { AiOutlineMessage, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
-import { BsBookmarkDash, BsThreeDots } from "react-icons/bs";
+import { AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
+import { BsBookmarkDash } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import { EditPost, CommentBox, CommentCard } from "../component";
 import { useState } from "react";
@@ -36,15 +36,6 @@ export default function UserPost({ post }) {
 
   const deletePostHandler = () => {
     dispatch(deletePost({ post, token }));
-    // try {
-    //   if (response?.payload.status === 200) {
-    //     console.log("Post deleted successfully");
-    //   } else {
-    //     console.log(`${response.payload.data.errors[0]}`);
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
 
   const {
@@ -62,19 +53,6 @@ export default function UserPost({ post }) {
       : dispatch(likedPost({ post, token }));
   };
 
-  const getDate = (createdAt) => {
-    const date = new Date(createdAt).toLocaleString("en-In", {
-      day: "2-digit",
-    });
-
-    const month = new Date(createdAt).toLocaleString("en-In", {
-      month: "short",
-    });
-
-    const year = new Date(createdAt).getFullYear();
-    return `${date} ${month} ${year}`;
-  };
-
   const latestCommentsOnTopArray = [...comments].reverse();
   return (
     <section className="user-post-container col-post">
@@ -88,31 +66,9 @@ export default function UserPost({ post }) {
         </div>
         <div className="post-data">
           <div className="post-username">
-            <p className="user-name text-align-left">
-              {post?.firstname} {post?.lastname}
-            </p>
             <p className="user-name">@{post?.username}</p>
-            <p>{getDate(post?.createdAt)}</p>
-            <BsThreeDots />
-          </div>
-
-          <p className="user-post text-align-left">{post?.content}</p>
-
-          <div className="create-post-icon">
-            <span>
-              {isPostAlreadyLiked ? (
-                <AiTwotoneLike className="icon" onClick={likePostHandler} />
-              ) : (
-                <AiOutlineLike className="icon" onClick={likePostHandler} />
-              )}
-              <p>{likeCount}</p>
-            </span>
-
-            <AiOutlineMessage className="icon" />
-
-            <BsBookmarkDash className="icon" onClick={bookmarkPostHandler} />
             {isCurrentUserPost && (
-              <>
+              <div className="btn-container">
                 <button
                   type="text"
                   className="btn btn-left"
@@ -133,10 +89,22 @@ export default function UserPost({ post }) {
                 >
                   Delete
                 </button>
-              </>
+              </div>
             )}
           </div>
-          <CommentBox postId={post._id} />
+          <p className="user-post text-align-left">{post?.content}</p>
+          <div className="create-post-icon">
+            <span>
+              {isPostAlreadyLiked ? (
+                <AiTwotoneLike className="icon" onClick={likePostHandler} />
+              ) : (
+                <AiOutlineLike className="icon" onClick={likePostHandler} />
+              )}
+              <p>{likeCount}</p>
+            </span>
+            <CommentBox postId={post._id} />
+            <BsBookmarkDash className="icon" onClick={bookmarkPostHandler} />
+          </div>
           <p className="heading">Comments:</p>
           {latestCommentsOnTopArray.length
             ? latestCommentsOnTopArray.map((comment) => (

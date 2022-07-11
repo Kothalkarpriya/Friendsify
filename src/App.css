@@ -1,9 +1,13 @@
 .App {
   text-align: center;
   background-color: var(--back-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .app-container {
   display: grid;
-  grid-template-columns: 0.3fr 1fr 0.4fr;
+  grid-template-columns: 0.3fr 1fr 0.5fr;
+  flex-grow: 1;
 }

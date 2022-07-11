@@ -10,14 +10,6 @@ export default function FollowerSuggestion() {
   const dispatch = useDispatch();
 
   const [list, setList] = useState([]);
-  // const usersNotFollowedByLoggedInUser =
-  //  setList(users.filter(
-  //   (item) =>
-  //     item.username !== user.username &&
-  //     !user.following.some((user) => user.username === item.username)
-  // ));
-
-  // console.log(user);
 
   useEffect(() => {
     setList(
@@ -27,12 +19,11 @@ export default function FollowerSuggestion() {
           !user.following.some((user) => user._id === item._id)
       )
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [users, user]);
 
   useEffect(() => {
     dispatch(getUsers());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
