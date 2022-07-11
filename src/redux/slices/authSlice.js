@@ -62,7 +62,7 @@ const authSlice = createSlice({
     },
     [editUser.rejected]: (state, action) => {
       state.isLoading = false;
-      console.error(action.error.message);
+      // console.error(action.error.message);
     },
     [bookmarkPost.pending]: (state) => {
       state.isloading = true;

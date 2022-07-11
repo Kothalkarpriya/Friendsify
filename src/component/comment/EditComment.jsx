@@ -12,7 +12,7 @@ export default function EditComment({ modalDisplay, comment, postId }) {
     if (commentDetail === "") {
       console.log("Comment can not be empty");
     } else {
-      const response = await dispatch(
+     dispatch(
         editComment({
           postId,
           commentId: comment._id,
@@ -20,12 +20,6 @@ export default function EditComment({ modalDisplay, comment, postId }) {
           token,
         })
       );
-
-      if (response?.payload.status === 201) {
-        console.log("COmment has been edited");
-      } else {
-        console.log(response);
-      }
       closeHandler();
     }
   };

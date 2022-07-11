@@ -23,7 +23,6 @@ const usersSlice = createSlice({
     },
     [followUser.fulfilled]: (state, action) => {
       state.isLoading = false;
-      console.log(action);
       state.users = action.payload.data.users;
     },
     [followUser.rejected]: (state) => {

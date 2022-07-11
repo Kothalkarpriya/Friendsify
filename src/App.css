@@ -8,6 +8,6 @@
 
 .app-container {
   display: grid;
-  grid-template-columns: 0.3fr 1fr 0.5fr;
+  grid-template-columns: 0.4fr 1fr 0.5fr;
   flex-grow: 1;
 }

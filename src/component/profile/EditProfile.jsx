@@ -2,7 +2,6 @@ import "../../assests/styles/post-css.css";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { editUser } from "../../redux/asynTunk/authTunk";
-import { updateUser } from "../../redux/slices/authSlice";
 
 export default function EditProfile({ userProfile, modalDisplay }) {
   const { token } = useSelector((state) => state.auth);
@@ -40,14 +39,7 @@ export default function EditProfile({ userProfile, modalDisplay }) {
 
   const updateModifiedData = async () => {
     try {
-      const response = await dispatch(editUser({ userData, token }));
-      if (response.payload.status === 201) {
-        setUserData(response.payload.data.user);
-        dispatch(updateUser(response?.payload.data.user));
-        console.log("Profile updated successfully!!!");
-      } else {
-        console.log(`${response?.payload?.data?.errors[0]}`);
-      }
+      dispatch(editUser({ userData, token }));
     } catch (error) {
       console.log(error);
     }

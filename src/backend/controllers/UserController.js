@@ -197,7 +197,6 @@ export const followUserHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   const { followUserId } = request.params;
   const followUser = schema.users.findBy({ _id: followUserId }).attrs;
-  console.log(followUser)
   try {
     if (!user) {
       return new Response(
@@ -226,8 +225,6 @@ export const followUserHandler = function (schema, request) {
       ...followUser,
       followers: [...followUser.followers, { ...user }],
     };
-
-    console.log(updatedFollowUser);
     this.db.users.update(
       { _id: user._id },
       { ...updatedUser, updatedAt: formatDate() }

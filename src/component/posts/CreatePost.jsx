@@ -8,7 +8,7 @@ export default function CreatePost({ isEditPost = false, postEditData = {} }) {
     content: isEditPost ? postEditData.content : "",
   });
 
-  const { token , user} = useSelector((state) => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
 
   const createPost = (data) => {
     try {
@@ -45,22 +45,16 @@ export default function CreatePost({ isEditPost = false, postEditData = {} }) {
               setPostDetail((prev) => ({ ...prev, content: e.target.value }));
             }}
           ></textarea>
-          
         </div>
         <div className="btn-container">
-            {/* <div className="create-post-icon">
-              <AiOutlineFileImage className="icon" />
-              <AiOutlineFileGif className="icon" />
-              <AiOutlineSmile className="icon" />
-            </div> */}
-            <button
-              className="btn btn-left"
-              onClick={isEditPost ? "" : addPostHandler}
-              type="button"
-            >
-              Create Post
-            </button>
-          </div>
+          <button
+            className="btn btn-left"
+            onClick={isEditPost ? "" : addPostHandler}
+            type="button"
+          >
+            Create Post
+          </button>
+        </div>
       </form>
     </section>
   );

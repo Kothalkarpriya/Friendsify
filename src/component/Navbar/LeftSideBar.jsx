@@ -43,8 +43,6 @@ export default function LeftSideBar() {
           </NavLink>
         )}
       </div>
-      {/* <div className="left-side-second"> */}
-      {/* </div> */}
     </section>
   );
 }

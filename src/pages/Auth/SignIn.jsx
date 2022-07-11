@@ -13,8 +13,6 @@ export default function SignIn() {
     password: "",
     confirmpassword: "",
   });
-
-  // const navigate = useNavigate();
   const dispatch = useDispatch();
   // const location = useLocation();
   // const { signup } = useAuth();

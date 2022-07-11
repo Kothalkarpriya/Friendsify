@@ -13,15 +13,10 @@ export default function EditPost({
   });
   const [modal, setModal] = useState(modalDisplay);
   const dispatch = useDispatch();
-  const { token } = useSelector((state) => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
   const createPost = (data) => {
     try {
       dispatch(newPost({ postData: data, token }));
-      // if (response?.payload.status === 201) {
-      //   console.log("Post Added successfully!");
-      // } else {
-      //   console.log(response.payload.data.errors[0]);
-      // }
       setPostDetail({ content: "" });
       closePostHandler();
     } catch (error) {
@@ -34,12 +29,6 @@ export default function EditPost({
       dispatch(
         editPost({ postData: { ...postEditData, content: updatedData }, token })
       );
-      // if (response?.payload.status === 201) {
-      //   console.log("Post Updated successfully!");
-      // } else {
-      //   console.log(response.payload.data.errors[0]);
-      // }
-
       closePostHandler();
     } catch (error) {
       console.log(error);
@@ -79,7 +68,7 @@ export default function EditPost({
       <article className="playlist-modal">
         <div className="image">
           <img
-            src="https://picsum.photos/200"
+            src={user.profilePic}
             alt="user profile"
             className="avatar-image round-image"
           />
