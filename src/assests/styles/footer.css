@@ -2,8 +2,8 @@
 
 footer {
   background-color: var(--teal-col);
-  padding: 0.5rem;
   font-family: var(--heading-font);
+  padding: 0;
 }
 
 footer p span {
@@ -17,6 +17,7 @@ footer p {
 
 footer h3 {
   font-family: var(--content-font);
+  margin: 10px;
 }
 
 footer ul {
@@ -32,5 +33,5 @@ footer ul li {
 footer ul li a {
   color: var(--dark-col);
   font-size: 1.5rem;
-  padding: 1rem;
+  padding: 0 1rem;
 }

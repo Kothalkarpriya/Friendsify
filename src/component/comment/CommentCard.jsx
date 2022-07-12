@@ -7,29 +7,19 @@ import "../../assests/styles/comment.css";
 export default function CommentCard({ comment, postId }) {
   const { user, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-
   const [modalDisplay, setModalDisplay] = useState(false);
   const isCurrentUserLoggedInUserComment = user.username === comment.username;
 
   const deleteCommentHandler = async () => {
-    const response = await dispatch(
-      deleteComment({ postId, commentId: comment._id, token })
-    );
-
-    if (response?.payload.status === 201) {
-      console.log("Successfully deleted comment");
-    } else {
-      console.log(`${response.payload.data.errors[0]}`);
-    }
+    dispatch(deleteComment({ postId, commentId: comment._id, token }));
   };
   return (
     <section className="comment-card">
       {modalDisplay && (
         <EditComment modalDisplay comment={comment} postId={postId} />
       )}
-
       <div className="comment-content">
-        <p className="user-name text-align-left">User: {comment.username}</p>
+        <p className="user-name text-align-left">@{comment.username}</p>
         <p className="user-comment ">{comment.commentData}</p>
       </div>
 
@@ -46,14 +36,14 @@ export default function CommentCard({ comment, postId }) {
               }
             }}
           >
-            Edit Comment
+            Edit
           </button>
           <button
             type="text"
             onClick={deleteCommentHandler}
             className="btn btn-left"
           >
-            Delete Post
+            Delete
           </button>
         </div>
       ) : null}

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import img from "../../assests/home-image/landing.jpg";
 import "../../assests/styles/landing-page.css";
+import Landing from "./Landing";
 
 export default function LandingPage() {
   return (
@@ -32,8 +32,7 @@ export default function LandingPage() {
             </Link>
           </div>
         </article>
-
-        <img src={img} alt="landing" className="landing-img" />
+        <Landing />
       </section>
     </main>
   );

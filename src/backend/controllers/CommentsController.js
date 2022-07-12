@@ -14,8 +14,16 @@ import { v4 as uuid } from "uuid";
 export const getPostCommentsHandler = function (schema, request) {
   const postId = request.params.postId;
   try {
-    const post = schema.posts.findBy({ _id: postId }).attrs;
-    return new Response(200, {}, { comments: post.comments });
+    const post = schema.posts.findBy({
+      _id: postId,
+    }).attrs;
+    return new Response(
+      200,
+      {},
+      {
+        comments: post.comments,
+      }
+    );
   } catch (error) {
     return new Response(
       500,
@@ -56,17 +64,30 @@ export const addPostCommentHandler = function (schema, request) {
       firstName: user.firstName,
       lastName: user.lastName,
       profilePic: user.profilePic,
-      votes: { upvotedBy: [], downvotedBy: [] },
+      votes: {
+        upvotedBy: [],
+        downvotedBy: [],
+      },
       createdAt: formatDate(),
       updatedAt: formatDate(),
     };
-    const post = schema.posts.findBy({ _id: postId }).attrs;
+    const post = schema.posts.findBy({
+      _id: postId,
+    }).attrs;
     post.comments.push(comment);
-    this.db.posts.update({ _id: postId }, post);
+    this.db.posts.update(
+      {
+        _id: postId,
+      },
+      post
+    );
     return new Response(
       201,
       {},
-      { comments: post.comments, posts: this.db.posts }
+      {
+        comments: post.comments,
+        posts: this.db.posts,
+      }
     );
   } catch (error) {
     return new Response(
@@ -100,7 +121,9 @@ export const editPostCommentHandler = function (schema, request) {
     }
     const { postId, commentId } = request.params;
     const { commentData } = JSON.parse(request.requestBody);
-    const post = schema.posts.findBy({ _id: postId }).attrs;
+    const post = schema.posts.findBy({
+      _id: postId,
+    }).attrs;
     const commentIndex = post.comments.findIndex(
       (comment) => comment._id === commentId
     );
@@ -108,7 +131,9 @@ export const editPostCommentHandler = function (schema, request) {
       return new Response(
         400,
         {},
-        { errors: ["Cannot edit a comment doesn't belong to the User."] }
+        {
+          errors: ["Cannot edit a comment doesn't belong to the User."],
+        }
       );
     }
     post.comments[commentIndex] = {
@@ -116,11 +141,19 @@ export const editPostCommentHandler = function (schema, request) {
       commentData,
       updatedAt: formatDate(),
     };
-    this.db.posts.update({ _id: postId }, post);
+    this.db.posts.update(
+      {
+        _id: postId,
+      },
+      post
+    );
     return new Response(
       201,
       {},
-      { comments: post.comments, posts: this.db.posts }
+      {
+        comments: post.comments,
+        posts: this.db.posts,
+      }
     );
   } catch (error) {
     return new Response(
@@ -153,7 +186,9 @@ export const deletePostCommentHandler = function (schema, request) {
       );
     }
     const { postId, commentId } = request.params;
-    const post = schema.posts.findBy({ _id: postId }).attrs;
+    const post = schema.posts.findBy({
+      _id: postId,
+    }).attrs;
     const commentIndex = post.comments.findIndex(
       (comment) => comment._id === commentId
     );
@@ -164,17 +199,27 @@ export const deletePostCommentHandler = function (schema, request) {
       return new Response(
         400,
         {},
-        { errors: ["Cannot delete a comment doesn't belong to the User."] }
+        {
+          errors: ["Cannot delete a comment doesn't belong to the User."],
+        }
       );
     }
     post.comments = post.comments.filter(
       (comment) => comment._id !== commentId
     );
-    this.db.posts.update({ _id: postId }, post);
+    this.db.posts.update(
+      {
+        _id: postId,
+      },
+      post
+    );
     return new Response(
       201,
       {},
-      { comments: post.comments, posts: this.db.posts }
+      {
+        comments: post.comments,
+        posts: this.db.posts,
+      }
     );
   } catch (error) {
     return new Response(
@@ -207,7 +252,9 @@ export const upvotePostCommentHandler = function (schema, request) {
       );
     }
     const { postId, commentId } = request.params;
-    const post = schema.posts.findBy({ _id: postId }).attrs;
+    const post = schema.posts.findBy({
+      _id: postId,
+    }).attrs;
     const commentIndex = post.comments.findIndex(
       (comment) => comment._id === commentId
     );
@@ -220,15 +267,31 @@ export const upvotePostCommentHandler = function (schema, request) {
       return new Response(
         400,
         {},
-        { errors: ["Cannot upvote a post that is already upvoted. "] }
+        {
+          errors: ["Cannot upvote a post that is already upvoted. "],
+        }
       );
     }
     post.comments[commentIndex].votes.downvotedBy = post.comments[
       commentIndex
     ].votes.downvotedBy.filter((currUser) => currUser._id !== user._id);
     post.comments[commentIndex].votes.upvotedBy.push(user);
-    this.db.posts.update({ _id: postId }, { ...post, updatedAt: formatDate() });
-    return new Response(201, {}, { comments: post.comments });
+    this.db.posts.update(
+      {
+        _id: postId,
+      },
+      {
+        ...post,
+        updatedAt: formatDate(),
+      }
+    );
+    return new Response(
+      201,
+      {},
+      {
+        comments: post.comments,
+      }
+    );
   } catch (error) {
     return new Response(
       500,
@@ -260,7 +323,9 @@ export const downvotePostCommentHandler = function (schema, request) {
       );
     }
     const { postId, commentId } = request.params;
-    const post = schema.posts.findBy({ _id: postId }).attrs;
+    const post = schema.posts.findBy({
+      _id: postId,
+    }).attrs;
     const commentIndex = post.comments.findIndex(
       (comment) => comment._id === commentId
     );
@@ -273,15 +338,31 @@ export const downvotePostCommentHandler = function (schema, request) {
       return new Response(
         400,
         {},
-        { errors: ["Cannot downvote a post that is already downvoted. "] }
+        {
+          errors: ["Cannot downvote a post that is already downvoted. "],
+        }
       );
     }
     post.comments[commentIndex].votes.upvotedBy = post.comments[
       commentIndex
     ].votes.upvotedBy.filter((currUser) => currUser._id !== user._id);
     post.comments[commentIndex].votes.downvotedBy.push(user);
-    this.db.posts.update({ _id: postId }, { ...post, updatedAt: formatDate() });
-    return new Response(201, {}, { comments: post.comments });
+    this.db.posts.update(
+      {
+        _id: postId,
+      },
+      {
+        ...post,
+        updatedAt: formatDate(),
+      }
+    );
+    return new Response(
+      201,
+      {},
+      {
+        comments: post.comments,
+      }
+    );
   } catch (error) {
     return new Response(
       500,

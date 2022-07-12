@@ -9,10 +9,12 @@ import {
   SignIn,
   RequireAuth,
 } from "../pages/pages";
+import Mockman from "mockman-js";
 
 export default function RoutesPath() {
   return (
     <Routes>
+      <Route path="/mockman" element={<Mockman />} />
       <Route path="/" element={<LandingPage />} />
       <Route
         path="/home"
