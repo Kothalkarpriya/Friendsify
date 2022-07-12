@@ -1,34 +1,21 @@
 @import "./coolors.css";
 
-.login {
-  padding: 1rem;
-  max-width: 25rem;
-  margin: 2rem auto;
-}
-
 .signin {
-  max-width: max-content;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
-.login:hover,
-.signin:hover {
-  box-shadow: var(--all-side-bold-shadow);
+  margin: 10px auto;
 }
 
 .login header,
 .signin header {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-family: var(--heading-font);
   font-weight: bold;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 
 .form-block {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 0.8rem;
   text-align: left;
   align-items: stretch;
 }
@@ -36,7 +23,8 @@
 .form-block-check {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.8rem;
+  align-items: center;
 }
 
 .form-block-check .input {
@@ -65,4 +53,8 @@
 
 .form-block-name {
   display: flex;
+}
+
+.btn-pass{
+  margin: 0 10px;
 }

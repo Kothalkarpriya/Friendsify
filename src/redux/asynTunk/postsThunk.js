@@ -114,12 +114,12 @@ const dislikedPost = createAsyncThunk(
 );
 const addComment = createAsyncThunk(
   "posts/addComment",
-  async ({ postId, commentData, token }, { rejectWithValue }) => {
+  async ({ postId, commentData, token: encodedToken }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         `/api/comments/add/${postId}`,
         { commentData },
-        { headers: { authorization: token } }
+        { headers: { authorization: encodedToken } }
       );
       const data = { data: response.data, status: response.status };
       return data;
@@ -148,12 +148,11 @@ const editComment = createAsyncThunk(
 
 const deleteComment = createAsyncThunk(
   "posts/deleteComment",
-  async ({ postId, commentId, token }, { rejectWithValue }) => {
+  async ({ postId, commentId, token: encodedToken }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(
+      const response = await axios.delete(
         `/api/comments/delete/${postId}/${commentId}`,
-        {},
-        { headers: { authorization: token } }
+        { headers: { authorization: encodedToken } }
       );
       const data = { data: response.data, status: response.status };
       return data;

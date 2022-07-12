@@ -1,35 +1,37 @@
 import "../../assests/styles/createpost.css";
-import {
-  AiOutlineFileGif,
-  AiOutlineFileImage,
-  AiOutlineSmile,
-} from "react-icons/ai";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { postAdded } from "../../redux/slices/postsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { newPost } from "../../redux/asynTunk/postsThunk";
 
-export default function CreatePost() {
-  const [content, setContent] = useState("");
+export default function CreatePost({ isEditPost = false, postEditData = {} }) {
+  const [postDetail, setPostDetail] = useState({
+    content: isEditPost ? postEditData.content : "",
+  });
 
-  const dispatch = useDispatch();
+  const { token, user } = useSelector((state) => state.auth);
 
-  const onContentChange = (event) => setContent(event.target.value);
-
-  const onSavePostClicked = () => {
-    if (content) {
-      dispatch(postAdded(content));
-      setContent("");
+  const createPost = (data) => {
+    try {
+      dispatch(newPost({ postData: data, token }));
+      setPostDetail({ content: "" });
+    } catch (error) {
+      console.log(error);
     }
   };
-
-  const canSave = Boolean(content);
-
+  const addPostHandler = () => {
+    if (postDetail.content !== "") {
+      createPost(postDetail);
+    } else {
+      console.log("Post Content can not be empty");
+    }
+  };
+  const dispatch = useDispatch();
   return (
     <section className="post-container">
       <form className="create-post-form">
         <div className="image">
           <img
-            src="https://picsum.photos/200"
+            src={user.profilePic}
             alt="user profile"
             className="avatar-image round-image"
           />
@@ -38,26 +40,22 @@ export default function CreatePost() {
           <textarea
             placeholder="Write something interesting..."
             className="post-text"
-            value={content}
-            onChange={onContentChange}
+            value={postDetail.content}
+            onChange={(e) => {
+              setPostDetail((prev) => ({ ...prev, content: e.target.value }));
+            }}
           ></textarea>
-          <div className="btn-container">
-            <div className="create-post-icon">
-              <AiOutlineFileImage className="icon" />
-              <AiOutlineFileGif className="icon" />
-              <AiOutlineSmile className="icon" />
-            </div>
-            <button
-              className="btn btn-left"
-              onClick={onSavePostClicked}
-              disabled={!canSave}
-              type="button"
-            >
-              Post
-            </button>
-          </div>
+        </div>
+        <div className="btn-container">
+          <button
+            className="btn btn-left"
+            onClick={isEditPost ? "" : addPostHandler}
+            type="button"
+          >
+            Create Post
+          </button>
         </div>
       </form>
     </section>
   );
-} 
+}

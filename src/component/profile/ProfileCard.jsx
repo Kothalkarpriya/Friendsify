@@ -3,40 +3,25 @@ import "../../assests/styles/userlist.css";
 import EditProfile from "./EditProfile";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateUser } from "../../redux/slices/authSlice";
 import { followUser, unfollowUser } from "../../redux/asynTunk/usersThunk";
-// import
 
 export default function ProfileCard({
   profileDetails,
   numberOfPosts,
-  setProfile,
 }) {
   const dispatch = useDispatch();
   const [modalDisplay, setModalDisplay] = useState(false);
   const { user, token } = useSelector((state) => state.auth);
-  const {
-    username,
-    following,
-    followers,
-  } = profileDetails;
+  const { username, following, followers } = profileDetails;
 
   const isCurrentLoggedInUser = username === user.username;
 
   const followUserHandler = async () => {
-    const response = await dispatchEvent(
-      followUser({ userId: __dirname, token })
-    );
-    if (response.payload.status === 200) {
-      dispatch(updateUser(response.payload.data?.user));
-    } else {
-      console.log(response.payload.data.error[0]);
-    }
+    dispatchEvent(followUser({ userId: __dirname, token }));
   };
 
   const unfollowUserHandler = async () => {
-    const response = await dispatch(unfollowUser({ userId: __dirname, token }));
-    dispatch(updateUser(response?.payload.data.user));
+    dispatch(unfollowUser({ userId: __dirname, token }));
   };
 
   return (
@@ -91,7 +76,7 @@ export default function ProfileCard({
           <div className="follower-container">
             <span className="follower">
               <p className="count">{followers?.length}</p>
-              <p className="follower-detail">Following</p>
+              <p className="follower-detail">Followers</p>
             </span>
             <span className="follower">
               <p className="count">{numberOfPosts}</p>

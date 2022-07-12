@@ -4,19 +4,16 @@
 .user-post-container {
   width: 600px;
   font-family: var(--content-font);
+  margin: auto;
 }
 
 .create-post-form .post-data {
-  width: 80%;
-}
-
-.user-post-container {
-  display: contents;
+  width: 100%;
 }
 
 .post-container {
   background-color: var(--highlight);
-  margin: 1.5rem auto 1rem auto;
+  margin: 1rem auto;
   padding: 1rem 1rem 0.5rem 1rem;
 }
 
@@ -38,7 +35,7 @@
 }
 
 .post-text {
-  width: 100%;
+  width: 90%;
   height: 100px;
   background-color: var(--back-light);
   color: var(--dark-col);
@@ -49,8 +46,7 @@
 
 .btn-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .create-post-icon .icon {
@@ -61,13 +57,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 1rem;
 }
 
 .user-post-container article {
   display: flex;
   margin: 10px;
-  width: 90%;
+  position: relative;
+  width: -webkit-fill-available;
 }
 
 .btn .Link {

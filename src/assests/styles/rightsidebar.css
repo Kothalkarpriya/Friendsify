@@ -3,6 +3,7 @@
 .right-side-container {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   margin: 1rem;
   gap: 1rem;
 }
@@ -40,14 +41,13 @@
 .right-side-second .side-head {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
 }
 
 .right-side-second .side-head p,
 .side-head button {
   padding: 5px;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: var(--dark-col);
   align-items: center;
@@ -56,7 +56,8 @@
 
 button {
   background-color: var(--highlight);
-  border: none;
+  border: 2px solid var(--dark-col);
+  padding: 0.5rem 1rem;
 }
 
 .side-list {

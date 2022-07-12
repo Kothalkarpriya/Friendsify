@@ -12,6 +12,7 @@
   padding: 1rem;
   width: max-content;
   margin: auto;
+  border: 1px solid var(--dark-col);
 }
 
 .landing:hover {

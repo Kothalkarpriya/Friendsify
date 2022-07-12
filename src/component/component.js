@@ -6,13 +6,12 @@ import CreatePost from "./posts/CreatePost";
 import PostFilter from "./filter/PostFilter";
 import UserPost from "./posts/UserPost";
 import EditPost from "./posts/EditPost";
-import PostAuthors from "./posts/PostAuthors";
 import ProfileCard from "./profile/ProfileCard";
 import EditProfile from "./profile/EditProfile";
 import CommentBox from "./comment/CommentBox.jsx";
 import CommentCard from "./comment/CommentCard.jsx";
 import EditComment from "./comment/EditComment.jsx";
-import FollowerSugge from "./user/FollowerSugge";
+import FollowerSuggestion from "./user/FollowerSuggestion";
 import FollowerSuggestionsProfile from "./user/FollowerSuggestionProfile";
 
 export {
@@ -24,12 +23,11 @@ export {
   PostFilter,
   UserPost,
   EditPost,
-  PostAuthors,
   ProfileCard,
   EditProfile,
   CommentBox,
   CommentCard,
-  FollowerSugge,
+  FollowerSuggestion,
   FollowerSuggestionsProfile,
   EditComment,
 };
