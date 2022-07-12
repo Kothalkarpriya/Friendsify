@@ -39,7 +39,6 @@ export default function Login() {
     }
   };
   return (
-    <main className="landing-main">
       <section className="landing">
         <article>
           <h1>
@@ -84,7 +83,7 @@ export default function Login() {
                   Remember Me
                 </div>
                 <div className="btn-pass">
-                  <Link className="Link" to="/home">
+                  <Link className="Link" to="/">
                     Forgot your Password?
                   </Link>
                 </div>
@@ -105,6 +104,5 @@ export default function Login() {
 
         <Landing />
       </section>
-    </main>
   );
 }

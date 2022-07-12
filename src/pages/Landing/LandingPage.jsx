@@ -32,7 +32,6 @@ export default function LandingPage() {
             </Link>
           </div>
         </article>
-
         <Landing />
       </section>
     </main>

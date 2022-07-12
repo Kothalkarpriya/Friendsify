@@ -1,7 +1,7 @@
 import "../../assests/styles/userlist.css";
 import "../../assests/styles/createpost.css";
 import { AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
-import { BsBookmarkDash } from "react-icons/bs";
+import { BsBookmarkDash,BsBookmarkDashFill } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import { EditPost, CommentBox, CommentCard } from "../component";
 import { useState } from "react";
@@ -103,7 +103,8 @@ export default function UserPost({ post }) {
               <p>{likeCount}</p>
             </span>
             <CommentBox postId={post._id} />
-            <BsBookmarkDash className="icon" onClick={bookmarkPostHandler} />
+            {alreadyBookmarked?(<BsBookmarkDashFill className="icon" onClick={bookmarkPostHandler} />):(<BsBookmarkDash className="icon" onClick={bookmarkPostHandler} />)}
+            
           </div>
           <p className="heading">Comments:</p>
           {latestCommentsOnTopArray.length

@@ -2,29 +2,29 @@
 
 .comment-card {
      border: 1px solid var(--dark-col);
-     padding: 10px;
 }
 
 .comment-card .comment-content {
      display: flex;
-     flex-direction: column;
+     padding: 5px;
+     align-items: center;
 }
 
 .comment-content .user-name {
-     font-size: 15px;
+     font-size: 1rem;
 }
 
 .comment-card .user-comment {
      background-color: var(--back-light);
-     padding: 1rem;
+     padding: 5px 10px;
+     font-size: 1.3rem;
+     width: 100%;
+     text-align: left;
+     margin: 0;
 }
 
 .comment-card .btn-container {
      justify-content: unset;
-}
-
-.comment-card .btn-container .btn {
-     font-size: unset;
 }
 
 .comment-box {
