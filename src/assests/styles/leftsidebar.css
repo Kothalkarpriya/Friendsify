@@ -6,6 +6,7 @@
   justify-content: space-between;
   align-items: flex-end;
   font-family: var(--notify-font);
+  grid-area: left-sidebar;
 }
 
 .left-side-first {

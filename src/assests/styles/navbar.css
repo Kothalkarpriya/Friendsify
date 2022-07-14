@@ -8,6 +8,9 @@ nav {
   padding: 1rem;
   box-shadow: var(--bottom-shadow);
   font-family: var(--heading-font);
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
 
 span {
